@@ -268,6 +268,19 @@ img {
   gap: 6px;
 }
 
+.tab-panels {
+  display: grid;
+  gap: 28px;
+}
+
+.tab-panels .card-grid {
+  display: none;
+}
+
+.tab-panels .card-grid.active {
+  display: grid;
+}
+
 .tab {
   padding: 10px 22px;
   border: none;

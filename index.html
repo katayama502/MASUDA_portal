@@ -22,10 +22,9 @@
           <li><a href="#schools">学校別</a></li>
           <li><a href="#adults">大人向け</a></li>
           <li><a href="#features">特集</a></li>
-          <li><a href="#support">サポート</a></li>
         </ul>
       </nav>
-      <a class="cta-button" href="#contact">お問い合わせ</a>
+      <a class="cta-button" href="#schools">教室を探す</a>
     </div>
   </header>
 
@@ -75,50 +74,134 @@
           <p>益田市内の学校と連携した習い事・部活動支援プログラムをご紹介。</p>
         </div>
         <div class="tabs" role="tablist" aria-label="学校カテゴリ">
-          <button class="tab active" role="tab" aria-selected="true">小学校</button>
-          <button class="tab" role="tab">中学校</button>
-          <button class="tab" role="tab">高校</button>
+          <button class="tab active" role="tab" id="tab-elementary" aria-selected="true" aria-controls="panel-elementary" data-target="elementary">小学校</button>
+          <button class="tab" role="tab" id="tab-middle" aria-selected="false" aria-controls="panel-middle" data-target="middle">中学校</button>
+          <button class="tab" role="tab" id="tab-high" aria-selected="false" aria-controls="panel-high" data-target="high">高校</button>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <header>
-              <p class="category">吉田小学校エリア</p>
-              <h3>まなびの森サイエンスクラブ</h3>
-            </header>
-            <p>理科好きが集まる探究クラブ。ドローンプログラミングや水質調査など、地域フィールドワークと合わせて体験。</p>
-            <ul class="meta">
-              <li><strong>対象:</strong> 小学3〜6年生</li>
-              <li><strong>開催:</strong> 毎週土曜日 / 13:30-15:30</li>
-              <li><strong>場所:</strong> 益田市立市民学習センター</li>
-            </ul>
-            <a class="more" href="#contact">体験申し込み</a>
-          </article>
-          <article class="card">
-            <header>
-              <p class="category">益田東中学校エリア</p>
-              <h3>益田ユナイテッド バスケットボールクラブ</h3>
-            </header>
-            <p>全国大会出場経験のあるコーチ陣が直接指導。個々のスキルアップとチームワーク強化に特化したプログラム。</p>
-            <ul class="meta">
-              <li><strong>対象:</strong> 中学1〜3年生</li>
-              <li><strong>開催:</strong> 火・木・日曜日</li>
-              <li><strong>場所:</strong> 益田市民体育館</li>
-            </ul>
-            <a class="more" href="#contact">詳細を見る</a>
-          </article>
-          <article class="card">
-            <header>
-              <p class="category">益田翔陽高校エリア</p>
-              <h3>グローカル探究ゼミ</h3>
-            </header>
-            <p>地域企業と連携した課題解決型ゼミ。ビジネスアイデア創出やプレゼンテーションの基礎を実践的に学ぶことができます。</p>
-            <ul class="meta">
-              <li><strong>対象:</strong> 高校1〜3年生</li>
-              <li><strong>開催:</strong> 隔週土曜日 / 10:00-16:00</li>
-              <li><strong>場所:</strong> 益田市役所 コミュニティホール</li>
-            </ul>
-            <a class="more" href="#contact">企業連携を相談</a>
-          </article>
+        <div class="tab-panels">
+          <div class="card-grid active" role="tabpanel" id="panel-elementary" aria-labelledby="tab-elementary" data-panel="elementary">
+            <article class="card">
+              <header>
+                <p class="category">吉田小学校エリア</p>
+                <h3>まなびの森サイエンスクラブ</h3>
+              </header>
+              <p>理科好きが集まる探究クラブ。ドローンプログラミングや水質調査など、地域フィールドワークと合わせて体験。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 小学3〜6年生</li>
+                <li><strong>開催:</strong> 毎週土曜日 / 13:30-15:30</li>
+                <li><strong>場所:</strong> 益田市立市民学習センター</li>
+              </ul>
+              <span class="more" aria-label="詳しくは吉田小学校エリアの教室にお問い合わせください">詳細は各教室へ</span>
+            </article>
+            <article class="card">
+              <header>
+                <p class="category">益田小学校エリア</p>
+                <h3>MASUDA アフタースクール英語ラボ</h3>
+              </header>
+              <p>英語で遊びながら学べるコミュニケーション重視のクラス。ALT経験者が益田市内の児童に合わせた教材で指導します。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 小学1〜6年生</li>
+                <li><strong>開催:</strong> 月・水曜日 / 16:00-18:00</li>
+                <li><strong>場所:</strong> 益田市駅前町 MASUDA HUB 教室</li>
+              </ul>
+              <span class="more" aria-label="詳しくはMASUDA アフタースクール英語ラボまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+            <article class="card">
+              <header>
+                <p class="category">鎌手小学校エリア</p>
+                <h3>石見海辺のSTEAMクラブ</h3>
+              </header>
+              <p>日本海の自然を活用した理科・アート融合プログラム。海洋観察とデジタル制作を組み合わせて学びを深めます。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 小学4〜6年生</li>
+                <li><strong>開催:</strong> 隔週土曜日 / 10:00-12:00</li>
+                <li><strong>場所:</strong> 益田市鎌手町 海辺の学習拠点</li>
+              </ul>
+              <span class="more" aria-label="詳しくは石見海辺のSTEAMクラブまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+          </div>
+          <div class="card-grid" role="tabpanel" id="panel-middle" aria-labelledby="tab-middle" data-panel="middle" hidden>
+            <article class="card">
+              <header>
+                <p class="category">益田東中学校エリア</p>
+                <h3>益田ユナイテッド バスケットボールクラブ</h3>
+              </header>
+              <p>全国大会出場経験のあるコーチ陣が直接指導。個々のスキルアップとチームワーク強化に特化したプログラム。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 中学1〜3年生</li>
+                <li><strong>開催:</strong> 火・木・日曜日</li>
+                <li><strong>場所:</strong> 益田市民体育館</li>
+              </ul>
+              <span class="more" aria-label="詳しくは益田ユナイテッド バスケットボールクラブまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+            <article class="card">
+              <header>
+                <p class="category">横田中学校エリア</p>
+                <h3>石見リサーチ探究ラボ</h3>
+              </header>
+              <p>島根県立大学と連携した探究型学習。益田市内の地域課題をテーマにフィールドワークとデータ分析を行います。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 中学1〜3年生</li>
+                <li><strong>開催:</strong> 隔週土曜日 / 13:00-16:00</li>
+                <li><strong>場所:</strong> 益田市高津町 県立大学サテライト</li>
+              </ul>
+              <span class="more" aria-label="詳しくは石見リサーチ探究ラボまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+            <article class="card">
+              <header>
+                <p class="category">匹見中学校エリア</p>
+                <h3>匹見アドベンチャーアカデミー</h3>
+              </header>
+              <p>山里に広がる益田市匹見町で行う自然体験プログラム。リバートレッキングや木工クラフトで自己表現力を育みます。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 中学1〜3年生</li>
+                <li><strong>開催:</strong> 月1回 / 9:30-15:30</li>
+                <li><strong>場所:</strong> 益田市匹見町 学びの里みちくさ</li>
+              </ul>
+              <span class="more" aria-label="詳しくは匹見アドベンチャーアカデミーまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+          </div>
+          <div class="card-grid" role="tabpanel" id="panel-high" aria-labelledby="tab-high" data-panel="high" hidden>
+            <article class="card">
+              <header>
+                <p class="category">益田翔陽高校エリア</p>
+                <h3>グローカル探究ゼミ</h3>
+              </header>
+              <p>地域企業と連携した課題解決型ゼミ。ビジネスアイデア創出やプレゼンテーションの基礎を実践的に学ぶことができます。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 高校1〜3年生</li>
+                <li><strong>開催:</strong> 隔週土曜日 / 10:00-16:00</li>
+                <li><strong>場所:</strong> 益田市役所 コミュニティホール</li>
+              </ul>
+              <span class="more" aria-label="詳しくはグローカル探究ゼミまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+            <article class="card">
+              <header>
+                <p class="category">益田東高校エリア</p>
+                <h3>益田クリエイティブスタジオ</h3>
+              </header>
+              <p>映像制作やグラフィックデザインを実践的に学ぶラボ。地域の企業案件を取り上げ、リアルな制作体験ができます。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 高校1〜3年生</li>
+                <li><strong>開催:</strong> 毎週金曜日 / 17:30-19:30</li>
+                <li><strong>場所:</strong> 益田市駅前町 MASUDA HUB クリエイティブルーム</li>
+              </ul>
+              <span class="more" aria-label="詳しくは益田クリエイティブスタジオまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+            <article class="card">
+              <header>
+                <p class="category">吉賀高校連携</p>
+                <h3>石見起業チャレンジプログラム</h3>
+              </header>
+              <p>益田市と吉賀町の高校生が協働する起業体験講座。地域資源を活かしたビジネスプランづくりを専門家が伴走支援します。</p>
+              <ul class="meta">
+                <li><strong>対象:</strong> 高校1〜3年生</li>
+                <li><strong>開催:</strong> 全6回 / 土曜日集中</li>
+                <li><strong>場所:</strong> 益田市駅前町 シェアオフィスPORTO</li>
+              </ul>
+              <span class="more" aria-label="詳しくは石見起業チャレンジプログラムまでお問い合わせください">詳細は各教室へ</span>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -134,19 +217,19 @@
             <div class="feature-label">Teacher's Voice</div>
             <h3>益田市立高校 美術部 顧問 山本先生</h3>
             <p>「地域の文化財を活用したアート制作で、生徒の発想力がぐっと伸びました。」</p>
-            <a class="more" href="#contact">インタビューを読む</a>
+            <a class="more" href="#features">インタビューを読む</a>
           </article>
           <article class="feature">
             <div class="feature-label">Hot Lesson</div>
             <h3>島根県立大学 連携講座 デジタルクリエイティブ入門</h3>
             <p>大学生と高校生が一緒に学ぶ人気講座。3Dモデリングや動画制作を体験できる全6回の短期集中プログラム。</p>
-            <a class="more" href="#contact">日程を確認</a>
+            <a class="more" href="#features">日程を確認</a>
           </article>
           <article class="feature">
             <div class="feature-label">Report</div>
             <h3>石見神楽ジュニアチーム 全国大会レポート</h3>
             <p>全国大会で披露した演目「大蛇」の舞台裏と、メンバーの熱い想いを徹底レポート。</p>
-            <a class="more" href="#contact">レポートを読む</a>
+            <a class="more" href="#features">レポートを読む</a>
           </article>
         </div>
       </div>
@@ -169,19 +252,19 @@
               <li><strong>期間:</strong> 5月開講 / 全8回</li>
               <li><strong>会場:</strong> 益田産業支援センター</li>
             </ul>
-            <a class="more" href="#contact">受講相談する</a>
+            <span class="more" aria-label="益田市 DXリスキリング講座の詳細は各教室へお問い合わせください">詳細は各教室へ</span>
           </article>
           <article class="card">
             <header>
               <p class="category">ウェルネス</p>
               <h3>石見ヨガスタジオ 夜クラス</h3>
             </header>
-            <p>呼吸と瞑想を取り入れたリラックスプログラム。初心者でも安心して参加できる少人数制。</p>
+            <p>呼吸と瞑想を取り入たリラックスプログラム。初心者でも安心して参加できる少人数制。</p>
             <ul class="meta">
               <li><strong>期間:</strong> 隔週水曜日 / 19:00-20:30</li>
               <li><strong>会場:</strong> 益田駅前スタジオ</li>
             </ul>
-            <a class="more" href="#contact">空き状況を確認</a>
+            <span class="more" aria-label="石見ヨガスタジオ 夜クラスの詳細は各教室へお問い合わせください">詳細は各教室へ</span>
           </article>
           <article class="card">
             <header>
@@ -193,66 +276,9 @@
               <li><strong>期間:</strong> 通年募集</li>
               <li><strong>会場:</strong> 益田市立文化交流館</li>
             </ul>
-            <a class="more" href="#contact">見学を申し込む</a>
+            <span class="more" aria-label="石見神楽保存会 社会人講座の詳細は各教室へお問い合わせください">詳細は各教室へ</span>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section id="support" class="section support">
-      <div class="container">
-        <div class="support-wrapper">
-          <div class="support-copy">
-            <h2>サポートメニュー</h2>
-            <p>習い事を始めたい方、教室を開講したい方、それぞれにあわせたサポートを用意しています。</p>
-            <ul>
-              <li>学年・目的別のコンシェルジュ相談</li>
-              <li>体験レッスン申し込み代行</li>
-              <li>講師向けプロモーション支援</li>
-            </ul>
-          </div>
-          <div class="support-highlight">
-            <p class="label">無料相談受付中</p>
-            <p class="title">MASUDA Learning Desk</p>
-            <p class="description">「どの教室がいいか分からない…」という方に、専門コーディネーターが最適なプログラムをご提案します。</p>
-            <a class="more" href="#contact">予約する</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <div class="container contact-grid">
-        <div>
-          <h2>お問い合わせ</h2>
-          <p>掲載希望・取材依頼・コラボレーションなど、お気軽にご相談ください。</p>
-          <dl>
-            <div>
-              <dt>メール</dt>
-              <dd><a href="mailto:info@masuda-learning.jp">info@masuda-learning.jp</a></dd>
-            </div>
-            <div>
-              <dt>電話</dt>
-              <dd><a href="tel:0856-00-1234">0856-00-1234</a>（平日 10:00-17:00）</dd>
-            </div>
-            <div>
-              <dt>住所</dt>
-              <dd>〒698-0024 島根県益田市駅前町10-1 MASUDA HUB 3F</dd>
-            </div>
-          </dl>
-        </div>
-        <form class="contact-form">
-          <label for="name">お名前</label>
-          <input id="name" name="name" type="text" placeholder="例）益田 太郎" required>
-
-          <label for="email">メールアドレス</label>
-          <input id="email" name="email" type="email" placeholder="example@example.com" required>
-
-          <label for="message">お問い合わせ内容</label>
-          <textarea id="message" name="message" rows="4" placeholder="ご希望の講座や取材内容をご記入ください"></textarea>
-
-          <button type="submit">送信する</button>
-        </form>
       </div>
     </section>
   </main>
@@ -272,7 +298,6 @@
           <li><a href="#schools">学校別</a></li>
           <li><a href="#adults">大人向け</a></li>
           <li><a href="#features">特集</a></li>
-          <li><a href="#support">サポート</a></li>
         </ul>
       </div>
       <div>
@@ -286,5 +311,27 @@
     </div>
     <p class="copyright">&copy; 2024 MASUDA Learning Hub</p>
   </footer>
+  <script>
+    const tabs = document.querySelectorAll('.tabs .tab');
+    const panels = document.querySelectorAll('.tab-panels [data-panel]');
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+
+        tabs.forEach((item) => {
+          const isActive = item === tab;
+          item.classList.toggle('active', isActive);
+          item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        panels.forEach((panel) => {
+          const shouldShow = panel.dataset.panel === target;
+          panel.classList.toggle('active', shouldShow);
+          panel.toggleAttribute('hidden', !shouldShow);
+        });
+      });
+    });
+  </script>
 </body>
 </html>

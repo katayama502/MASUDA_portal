@@ -535,6 +535,37 @@ img {
   color: var(--text);
 }
 
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+  font-size: 0.92rem;
+}
+
+.resource-list li {
+  display: grid;
+  gap: 6px;
+}
+
+.resource-list strong {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.resource-list p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.resource-source {
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
 .more {
   color: var(--primary);
   font-weight: 600;

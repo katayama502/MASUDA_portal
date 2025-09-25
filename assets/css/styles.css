@@ -393,12 +393,29 @@ img {
   font-size: 1.25rem;
 }
 
+.school-type-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .school-type {
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(47, 77, 228, 0.12);
   color: var(--accent);
+  font-size: 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.school-category {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 
 .school-area {

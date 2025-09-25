@@ -24,7 +24,7 @@
           <li><a href="#features">特集</a></li>
         </ul>
       </nav>
-      <a class="cta-button" href="#schools">教室を探す</a>
+      <a class="cta-button" href="#schools">習い事を探す</a>
     </div>
   </header>
 
@@ -32,14 +32,14 @@
     <section class="hero" role="banner">
       <div class="container hero-content">
         <div class="hero-copy">
-          <p class="hero-tag">益田でつながる、確かな学校情報</p>
-          <h1>益田市内の小・中・高校を横断的に調べられるデータベース</h1>
+          <p class="hero-tag">学校帰りに通える習い事がすぐ見つかる</p>
+          <h1>益田市内の学校周辺で通える習い事データベース</h1>
           <p>
-            益田市教育委員会や各校が公表している公式情報をもとに、市内の学校を一括で検索できます。<br>
-            学校種やエリア、特徴タグを組み合わせて気になる学校を探してください。
+            小学生・中学生・高校生が通いやすいよう、各学校の周辺で開催されている習い事をまとめました。<br>
+            対象学年や開催エリア、通っている学校のタグから希望の習い事を探してください。
           </p>
           <div class="hero-actions">
-            <a class="primary" href="#schools">学校を検索する</a>
+            <a class="primary" href="#schools">習い事を検索する</a>
             <a class="secondary" href="#features">特集を見る</a>
           </div>
         </div>
@@ -50,29 +50,29 @@
     <section id="schools" class="section schools">
       <div class="container">
         <div class="section-heading">
-          <h2>益田市内の学校一覧</h2>
-          <p>島根県益田市に所在する小学校・中学校・高等学校の公式情報を収集し、フィルターで横断検索できるようにしました。</p>
+          <h2>学校周辺の習い事一覧</h2>
+          <p>島根県益田市にある学校の通学圏を中心に、放課後や週末に通える習い事をまとめました。対象学年や学校名タグで絞り込みができます。</p>
         </div>
-        <div class="school-search" aria-label="益田市内の学校検索">
+        <div class="school-search" aria-label="益田市内の習い事検索">
           <div class="filters" role="region" aria-label="検索条件">
             <div class="search-box">
-              <label for="school-search-input">学校名・キーワード検索</label>
-              <input id="school-search-input" type="search" placeholder="例: 益田小学校 / 中山間地域 / 私立" autocomplete="off">
-              <p class="help-text">学校名・所在地・特徴・タグで横断検索できます。</p>
+              <label for="school-search-input">習い事名・キーワード検索</label>
+              <input id="school-search-input" type="search" placeholder="例: サッカー / 英語 / 益田中学校" autocomplete="off">
+              <p class="help-text">習い事名・開催場所・対象学校タグで横断検索できます。</p>
             </div>
             <fieldset class="type-filter">
-              <legend>学校種で絞り込む</legend>
+              <legend>対象学年で絞り込む</legend>
               <label>
                 <input type="checkbox" name="school-type" value="elementary" checked>
-                <span>小学校</span>
+                <span>小学生向け</span>
               </label>
               <label>
                 <input type="checkbox" name="school-type" value="middle" checked>
-                <span>中学校</span>
+                <span>中学生向け</span>
               </label>
               <label>
                 <input type="checkbox" name="school-type" value="high" checked>
-                <span>高校</span>
+                <span>高校生向け</span>
               </label>
             </fieldset>
             <div class="tag-filter" role="region" aria-label="タグで絞り込む">
@@ -81,7 +81,7 @@
                 <button type="button" class="clear-tags" id="clear-tag-filter" hidden>選択中のタグをクリア</button>
               </div>
               <div class="tag-list" id="tag-list" role="listbox" aria-multiselectable="true"></div>
-              <p class="help-text">タグをクリックすると複数選択できます（OR検索）。</p>
+              <p class="help-text">タグはすべて学校名です。複数選択すると、選んだ学校のどれかに対応する習い事を表示します。</p>
             </div>
           </div>
           <div class="results" role="region" aria-live="polite" aria-busy="false">
@@ -199,9 +199,9 @@
   </footer>
     <script>
     const TYPE_LABELS = {
-      elementary: '小学校',
-      middle: '中学校',
-      high: '高等学校'
+      elementary: '小学生向け',
+      middle: '中学生向け',
+      high: '高校生向け'
     };
 
     const TYPE_ORDER = {
@@ -212,220 +212,220 @@
 
     const SCHOOLS = [
       {
-        name: '益田市立益田小学校',
+        name: '益田キッズサッカーアカデミー',
         type: 'elementary',
-        district: '益田地区（中心市街地）',
-        address: '島根県益田市元町6-30',
-        managingBody: '益田市教育委員会',
-        notes: '益田市中心部に位置する市立小学校です。',
-        tags: ['小学校', '公立', '市立', '中心市街地', '益田地区']
+        district: '益田市立益田小学校エリア',
+        address: '益田市元町 運動公園多目的グラウンド（益田小学校から徒歩5分）',
+        managingBody: '益田キッズスポーツクラブ',
+        notes: 'ドリブルとチーム連携を基礎から学べる小学生向けサッカークラブ。週2回のナイター練習あり。',
+        tags: ['益田市立益田小学校']
       },
       {
-        name: '益田市立吉田小学校',
+        name: '吉田ものづくりラボ',
         type: 'elementary',
-        district: '吉田地区',
-        address: '島根県益田市乙吉町イ114',
-        managingBody: '益田市教育委員会',
-        notes: '益田市乙吉町に位置する市立小学校です。',
-        tags: ['小学校', '公立', '市立', '吉田地区']
+        district: '益田市立吉田小学校周辺',
+        address: '益田市乙吉町 吉田地域交流センター',
+        managingBody: '吉田地区まちづくり協議会',
+        notes: 'プログラミングと木工を組み合わせたSTEAM講座。作品展示会を年2回開催。',
+        tags: ['益田市立吉田小学校']
       },
       {
-        name: '益田市立中西小学校',
+        name: '中西ロボットクラブ',
         type: 'elementary',
-        district: '中吉田町エリア',
-        address: '島根県益田市中吉田町37',
-        managingBody: '益田市教育委員会',
-        notes: '益田市中吉田町の農村地帯にある市立小学校です。',
-        tags: ['小学校', '公立', '市立', '吉田地区', '中山間地域']
+        district: '益田市立中西小学校周辺',
+        address: '益田市中吉田町 農村環境改善センター',
+        managingBody: '中西学区子ども育成会',
+        notes: 'レゴロボットでセンサー制御を学ぶ少人数制クラブ。大会出場もサポート。',
+        tags: ['益田市立中西小学校']
       },
       {
-        name: '益田市立高津小学校',
+        name: '高津イングリッシュクラブ',
         type: 'elementary',
-        district: '高津地区（沿岸部）',
-        address: '島根県益田市高津町イ2320',
-        managingBody: '益田市教育委員会',
-        notes: '益田市高津町に所在する沿岸部の市立小学校です。',
-        tags: ['小学校', '公立', '市立', '高津地区', '沿岸部']
+        district: '益田市立高津小学校周辺',
+        address: '益田市高津町 高津町公民館',
+        managingBody: 'イングリッシュパートナーズ益田',
+        notes: 'ネイティブ講師とゲーム形式で英語に親しむ放課後教室。フォニックス指導付き。',
+        tags: ['益田市立高津小学校']
       },
       {
-        name: '益田市立飯田小学校',
+        name: '飯田クリエイティブラボ',
         type: 'elementary',
-        district: '飯田地区',
-        address: '島根県益田市飯田町21-2',
-        managingBody: '益田市教育委員会',
-        notes: '益田市飯田町の市街地南部に位置する市立小学校です。',
-        tags: ['小学校', '公立', '市立', '益田地区']
+        district: '益田市立飯田小学校エリア',
+        address: '益田市飯田町 南部生涯学習センター',
+        managingBody: '飯田地区子ども会連合',
+        notes: 'デザイン思考を活かした工作・動画制作を行うワークショップ型教室。',
+        tags: ['益田市立飯田小学校']
       },
       {
-        name: '益田市立西益田小学校',
+        name: '西益田ミニバススクール',
         type: 'elementary',
-        district: '西益田地区',
-        address: '島根県益田市乙吉町イ331-3',
-        managingBody: '益田市教育委員会',
-        notes: '益田市乙吉町にある市立小学校です。',
-        tags: ['小学校', '公立', '市立', '吉田地区']
+        district: '益田市立西益田小学校周辺',
+        address: '益田市乙吉町 西益田体育館',
+        managingBody: '益田市ミニバスケットボール協会',
+        notes: '運動が苦手な子も歓迎の基礎練習クラス。週末は市内大会へ参加。',
+        tags: ['益田市立西益田小学校']
       },
       {
-        name: '益田市立東仙道小学校',
+        name: '東仙道リズムダンス教室',
         type: 'elementary',
-        district: '東仙道地区',
-        address: '島根県益田市東町12-6',
-        managingBody: '益田市教育委員会',
-        notes: '益田市東町の東仙道地区に位置する市立小学校です。',
-        tags: ['小学校', '公立', '市立', '中心市街地']
+        district: '益田市立東仙道小学校周辺',
+        address: '益田市東町 コミュニティスタジオ東仙道',
+        managingBody: '東仙道ダンスプロジェクト',
+        notes: 'ヒップホップやK-POPダンスを基礎から学べる初心者向けクラス。',
+        tags: ['益田市立東仙道小学校']
       },
       {
-        name: '益田市立横田小学校',
+        name: '横田サイクリングアカデミー',
         type: 'elementary',
-        district: '横田地区',
-        address: '島根県益田市高津町イ2955',
-        managingBody: '益田市教育委員会',
-        notes: '益田市高津町横田地区にある市立小学校です。',
-        tags: ['小学校', '公立', '市立', '高津地区']
+        district: '益田市立横田小学校エリア',
+        address: '益田市高津町横田 サイクルパーク',
+        managingBody: '横田アクティブラーニング協議会',
+        notes: '安全な乗り方とメンテナンスを学ぶ自転車教室。親子参加コースあり。',
+        tags: ['益田市立横田小学校']
       },
       {
-        name: '益田市立二条小学校',
+        name: '二条ネイチャー探検隊',
         type: 'elementary',
-        district: '二条地区（中山間）',
-        address: '島根県益田市二条町イ127',
-        managingBody: '益田市教育委員会',
-        notes: '益田市二条町の中山間地域にある市立小学校です。',
-        tags: ['小学校', '公立', '市立', '二条地区', '中山間地域']
+        district: '益田市立二条小学校周辺',
+        address: '益田市二条町 里山フィールドステーション',
+        managingBody: '石見自然体験ネットワーク',
+        notes: '季節の自然観察とアウトドア体験で環境学習を行う週末クラブ。',
+        tags: ['益田市立二条小学校']
       },
       {
-        name: '益田市立七尾小学校',
+        name: '七尾ビーチアートクラブ',
         type: 'elementary',
-        district: '七尾地区（沿岸部）',
-        address: '島根県益田市七尾町8',
-        managingBody: '益田市教育委員会',
-        notes: '益田市七尾町の海沿いにある市立小学校です。',
-        tags: ['小学校', '公立', '市立', '七尾地区', '沿岸部']
+        district: '益田市立七尾小学校沿岸エリア',
+        address: '益田市七尾町 七尾海岸アートベース',
+        managingBody: '七尾まちづくり協議会',
+        notes: '貝殻や流木を使ったアート作品づくりと海辺の環境学習を組み合わせた教室。',
+        tags: ['益田市立七尾小学校']
       },
       {
-        name: '益田市立鎌手小学校',
+        name: '鎌手マリンスポーツクラブ',
         type: 'elementary',
-        district: '鎌手地区（沿岸部）',
-        address: '島根県益田市鎌手町ロ77-3',
-        managingBody: '益田市教育委員会',
-        notes: '益田市鎌手町にある沿岸部の市立小学校です。',
-        tags: ['小学校', '公立', '市立', '鎌手地区', '沿岸部']
+        district: '益田市立鎌手小学校沿岸エリア',
+        address: '益田市鎌手町 ビーチハウスかまて',
+        managingBody: '鎌手マリンアクティビティ協会',
+        notes: 'シーカヤックとビーチクリーンを組み合わせた体験型の海洋プログラム。',
+        tags: ['益田市立鎌手小学校']
       },
       {
-        name: '益田市立匹見小学校',
+        name: '匹見川フィッシングスクール',
         type: 'elementary',
-        district: '匹見地区',
-        address: '島根県益田市匹見町匹見イ982',
-        managingBody: '益田市教育委員会',
-        notes: '益田市匹見町に位置する山間部の市立小学校です。',
-        tags: ['小学校', '公立', '市立', '匹見地区', '中山間地域']
+        district: '益田市立匹見小学校エリア',
+        address: '益田市匹見町匹見イ 匹見川河川敷',
+        managingBody: '匹見アウトドア協議会',
+        notes: '渓流釣りのマナーと安全知識を学びながら自然とふれ合う週末講座。',
+        tags: ['益田市立匹見小学校']
       },
       {
-        name: '益田市立美都小学校',
+        name: '美都グリーンアート教室',
         type: 'elementary',
-        district: '美都地区',
-        address: '島根県益田市美都町都茂1186',
-        managingBody: '益田市教育委員会',
-        notes: '益田市美都町都茂にある旧美都町の市立小学校です。',
-        tags: ['小学校', '公立', '市立', '美都地区', '中山間地域']
+        district: '益田市立美都小学校周辺',
+        address: '益田市美都町 ふれあいホールみと',
+        managingBody: '美都アートプロジェクト',
+        notes: '植物を題材にした絵画やクラフトを楽しむアートレッスン。地域の花祭りに出展。',
+        tags: ['益田市立美都小学校']
       },
       {
-        name: '益田市立都茂小学校',
+        name: '都茂ファームスクール',
         type: 'elementary',
-        district: '都茂地区',
-        address: '島根県益田市美都町都茂1523',
-        managingBody: '益田市教育委員会',
-        notes: '益田市美都町都茂地区にある市立小学校です。',
-        tags: ['小学校', '公立', '市立', '美都地区', '中山間地域']
+        district: '益田市立都茂小学校エリア',
+        address: '益田市美都町都茂 体験農園つも',
+        managingBody: '都茂グリーンツーリズム協議会',
+        notes: '野菜づくりと料理を通じて食育を学ぶ体験型スクール。',
+        tags: ['益田市立都茂小学校']
       },
       {
-        name: '益田市立益田中学校',
+        name: '益田サイエンスラボ',
         type: 'middle',
-        district: '益田地区（中心市街地）',
-        address: '島根県益田市染羽町1-5',
-        managingBody: '益田市教育委員会',
-        notes: '益田市染羽町に所在する市立中学校です。',
-        tags: ['中学校', '公立', '市立', '中心市街地', '益田地区']
+        district: '益田市立益田中学校エリア',
+        address: '益田市染羽町 理科教育センター',
+        managingBody: '益田市科学教育研究会',
+        notes: 'ロボット制作や化学実験を行う探究型の放課後ラボ。研究発表会を開催。',
+        tags: ['益田市立益田中学校']
       },
       {
-        name: '益田市立高津中学校',
+        name: '高津バスケットボールクラブ',
         type: 'middle',
-        district: '高津地区',
-        address: '島根県益田市高津町イ2360',
-        managingBody: '益田市教育委員会',
-        notes: '益田市高津町にある市立中学校です。',
-        tags: ['中学校', '公立', '市立', '高津地区']
+        district: '益田市立高津中学校周辺',
+        address: '益田市高津町 高津体育館',
+        managingBody: '益田市バスケットボール協会',
+        notes: '基礎トレーニングから大会出場までサポートする部活動連携クラブ。',
+        tags: ['益田市立高津中学校']
       },
       {
-        name: '益田市立横田中学校',
+        name: '横田アドベンチャーラン',
         type: 'middle',
-        district: '横田地区',
-        address: '島根県益田市高津町イ2745',
-        managingBody: '益田市教育委員会',
-        notes: '益田市高津町横田地区にある市立中学校です。',
-        tags: ['中学校', '公立', '市立', '高津地区']
+        district: '益田市立横田中学校エリア',
+        address: '益田市高津町横田 里山トレイルコース',
+        managingBody: '横田まちづくり実行委員会',
+        notes: 'トレイルランと体幹トレーニングで体力づくりを行うアウトドアクラブ。',
+        tags: ['益田市立横田中学校']
       },
       {
-        name: '益田市立匹見中学校',
+        name: '匹見和太鼓ワークショップ',
         type: 'middle',
-        district: '匹見地区',
-        address: '島根県益田市匹見町匹見イ1104',
-        managingBody: '益田市教育委員会',
-        notes: '益田市匹見町にある市立中学校です。',
-        tags: ['中学校', '公立', '市立', '匹見地区', '中山間地域']
+        district: '益田市立匹見中学校周辺',
+        address: '益田市匹見町 匹見文化センター',
+        managingBody: '匹見和太鼓保存会',
+        notes: '伝統のリズムと演舞を学ぶ太鼓教室。地域祭りでのステージ出演あり。',
+        tags: ['益田市立匹見中学校']
       },
       {
-        name: '益田市立美都中学校',
+        name: '美都ICTキャンプ',
         type: 'middle',
-        district: '美都地区',
-        address: '島根県益田市美都町都茂1186-2',
-        managingBody: '益田市教育委員会',
-        notes: '益田市美都町都茂に所在する市立中学校です。',
-        tags: ['中学校', '公立', '市立', '美都地区', '中山間地域']
+        district: '益田市立美都中学校エリア',
+        address: '益田市美都町 都茂ICTラボ',
+        managingBody: '美都まちづくりセンター',
+        notes: 'プログラミングと動画制作を学ぶ短期集中講座。地域プロモーション動画を制作。',
+        tags: ['益田市立美都中学校']
       },
       {
-        name: '益田東中学校',
+        name: '益田東STEAMゼミ',
         type: 'middle',
-        district: '久城町エリア',
-        address: '島根県益田市久城町457',
+        district: '益田東中学校エリア',
+        address: '益田市久城町 益田東学園STEAMルーム',
         managingBody: '学校法人益田永島学園',
-        notes: '益田東高等学校と同じ敷地にある私立中学校です。',
-        tags: ['中学校', '私立', '中高一貫', '久城町']
+        notes: '3Dプリントとプレゼンテーションに取り組む中高一貫の少人数ゼミ。',
+        tags: ['益田東中学校']
       },
       {
-        name: '島根県立益田高等学校',
+        name: '益田リサーチラボ',
         type: 'high',
-        district: '益田地区（中心市街地）',
-        address: '島根県益田市東町20-33',
-        managingBody: '島根県教育委員会',
-        notes: '益田市東町に位置する県立高等学校です。',
-        tags: ['高等学校', '県立', '普通科', '中心市街地', '益田地区']
+        district: '島根県立益田高等学校周辺',
+        address: '益田市東町 地域共創ラボ',
+        managingBody: '益田高校OB研究会',
+        notes: '地域課題をテーマにしたリサーチとデータ分析を学ぶ探究講座。',
+        tags: ['島根県立益田高等学校']
       },
       {
-        name: '島根県立益田翔陽高等学校',
+        name: '翔陽ホスピタリティ講座',
         type: 'high',
-        district: '昭和町エリア',
-        address: '島根県益田市昭和町12-1',
-        managingBody: '島根県教育委員会',
-        notes: '益田市昭和町に所在する県立高等学校です。',
-        tags: ['高等学校', '県立', '専門学科', '昭和町']
+        district: '島根県立益田翔陽高等学校エリア',
+        address: '益田市昭和町 コミュニティカレッジ',
+        managingBody: '益田翔陽ホスピタリティ研究会',
+        notes: '観光案内や接遇スキルを実地で学ぶフィールドワーク型講座。',
+        tags: ['島根県立益田翔陽高等学校']
       },
       {
-        name: '益田東高等学校',
+        name: '益田東グローバルディベート',
         type: 'high',
-        district: '久城町エリア',
-        address: '島根県益田市久城町457',
-        managingBody: '学校法人益田永島学園',
-        notes: '益田市久城町にある私立の高等学校です。',
-        tags: ['高等学校', '私立', '中高一貫', '久城町']
+        district: '益田東高等学校エリア',
+        address: '益田市久城町 イングリッシュホール',
+        managingBody: '益田東グローバル教育センター',
+        notes: '英語ディベートと国際課題研究に取り組む放課後プログラム。海外校とのオンライン交流あり。',
+        tags: ['益田東高等学校']
       },
       {
-        name: '明誠高等学校',
+        name: '明誠起業チャレンジ',
         type: 'high',
-        district: '三宅町エリア',
-        address: '島根県益田市三宅町7-37',
-        managingBody: '学校法人明誠高等学校',
-        notes: '益田市三宅町にある私立高等学校です。',
-        tags: ['高等学校', '私立', '三宅町']
+        district: '明誠高等学校エリア',
+        address: '益田市三宅町 スタートアップガレージ',
+        managingBody: '明誠高校キャリアデザイン室',
+        notes: '地域ビジネスを題材にしたアイデアソンとビジネスプランづくりを支援する講座。',
+        tags: ['明誠高等学校']
       }
     ];
 
@@ -557,7 +557,7 @@
       const header = document.createElement('header');
       const typeLabel = document.createElement('span');
       typeLabel.className = 'school-type';
-      typeLabel.textContent = TYPE_LABELS[school.type] ?? '学校';
+      typeLabel.textContent = TYPE_LABELS[school.type] ?? '習い事';
       header.appendChild(typeLabel);
 
       const name = document.createElement('h3');
@@ -576,7 +576,7 @@
       const detail = document.createElement('dl');
       detail.className = 'school-detail';
       appendDetail(detail, '所在地', school.address);
-      appendDetail(detail, '設置者', school.managingBody);
+      appendDetail(detail, '主催', school.managingBody);
       article.appendChild(detail);
 
       if (school.notes) {
@@ -608,7 +608,7 @@
       if (results.length === 0) {
         const empty = document.createElement('p');
         empty.className = 'empty-state';
-        empty.textContent = '該当する学校情報が見つかりませんでした。検索条件を見直してください。';
+        empty.textContent = '該当する習い事が見つかりませんでした。検索条件を見直してください。';
         schoolList.appendChild(empty);
       } else {
         results.forEach((school) => {
@@ -624,12 +624,12 @@
       const breakdown = typeKeys
         .map((type) => {
           const count = typeCounts[type] ?? 0;
-          return count > 0 ? `${TYPE_LABELS[type]} ${count}校` : null;
+          return count > 0 ? `${TYPE_LABELS[type]} ${count}件` : null;
         })
         .filter(Boolean)
         .join(' / ');
 
-      resultSummary.innerHTML = `<strong>${results.length}</strong> 件のスクールを表示中${
+      resultSummary.innerHTML = `<strong>${results.length}</strong> 件の習い事を表示中${
         breakdown ? `<br><span class="result-breakdown">${breakdown}</span>` : ''
       }`;
 

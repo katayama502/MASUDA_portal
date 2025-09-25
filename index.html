@@ -71,136 +71,42 @@
       <div class="container">
         <div class="section-heading">
           <h2>学校別で探す</h2>
-          <p>益田市内の学校と連携した習い事・部活動支援プログラムをご紹介。</p>
+          <p>島根県益田市内の小・中・高を一覧化。学校種とタグで横断検索できます。</p>
         </div>
-        <div class="tabs" role="tablist" aria-label="学校カテゴリ">
-          <button class="tab active" role="tab" id="tab-elementary" aria-selected="true" aria-controls="panel-elementary" data-target="elementary">小学校</button>
-          <button class="tab" role="tab" id="tab-middle" aria-selected="false" aria-controls="panel-middle" data-target="middle">中学校</button>
-          <button class="tab" role="tab" id="tab-high" aria-selected="false" aria-controls="panel-high" data-target="high">高校</button>
-        </div>
-        <div class="tab-panels">
-          <div class="card-grid active" role="tabpanel" id="panel-elementary" aria-labelledby="tab-elementary" data-panel="elementary">
-            <article class="card">
-              <header>
-                <p class="category">吉田小学校エリア</p>
-                <h3>まなびの森サイエンスクラブ</h3>
-              </header>
-              <p>理科好きが集まる探究クラブ。ドローンプログラミングや水質調査など、地域フィールドワークと合わせて体験。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 小学3〜6年生</li>
-                <li><strong>開催:</strong> 毎週土曜日 / 13:30-15:30</li>
-                <li><strong>場所:</strong> 益田市立市民学習センター</li>
-              </ul>
-              <span class="more" aria-label="詳しくは吉田小学校エリアの教室にお問い合わせください">詳細は各教室へ</span>
-            </article>
-            <article class="card">
-              <header>
-                <p class="category">益田小学校エリア</p>
-                <h3>MASUDA アフタースクール英語ラボ</h3>
-              </header>
-              <p>英語で遊びながら学べるコミュニケーション重視のクラス。ALT経験者が益田市内の児童に合わせた教材で指導します。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 小学1〜6年生</li>
-                <li><strong>開催:</strong> 月・水曜日 / 16:00-18:00</li>
-                <li><strong>場所:</strong> 益田市駅前町 MASUDA HUB 教室</li>
-              </ul>
-              <span class="more" aria-label="詳しくはMASUDA アフタースクール英語ラボまでお問い合わせください">詳細は各教室へ</span>
-            </article>
-            <article class="card">
-              <header>
-                <p class="category">鎌手小学校エリア</p>
-                <h3>石見海辺のSTEAMクラブ</h3>
-              </header>
-              <p>日本海の自然を活用した理科・アート融合プログラム。海洋観察とデジタル制作を組み合わせて学びを深めます。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 小学4〜6年生</li>
-                <li><strong>開催:</strong> 隔週土曜日 / 10:00-12:00</li>
-                <li><strong>場所:</strong> 益田市鎌手町 海辺の学習拠点</li>
-              </ul>
-              <span class="more" aria-label="詳しくは石見海辺のSTEAMクラブまでお問い合わせください">詳細は各教室へ</span>
-            </article>
+        <div class="school-search" aria-label="益田市内の学校検索">
+          <div class="filters" role="region" aria-label="検索条件">
+            <div class="search-box">
+              <label for="school-search-input">学校名・キーワード検索</label>
+              <input id="school-search-input" type="search" placeholder="例: 益田小学校 / 中山間地域 / 私立" autocomplete="off">
+              <p class="help-text">学校名・所在地・特徴・タグで横断検索できます。</p>
+            </div>
+            <fieldset class="type-filter">
+              <legend>学校種で絞り込む</legend>
+              <label>
+                <input type="checkbox" name="school-type" value="elementary" checked>
+                <span>小学校</span>
+              </label>
+              <label>
+                <input type="checkbox" name="school-type" value="middle" checked>
+                <span>中学校</span>
+              </label>
+              <label>
+                <input type="checkbox" name="school-type" value="high" checked>
+                <span>高校</span>
+              </label>
+            </fieldset>
+            <div class="tag-filter" role="region" aria-label="タグで絞り込む">
+              <div class="tag-filter-heading">
+                <span>タグ</span>
+                <button type="button" class="clear-tags" id="clear-tag-filter" hidden>選択中のタグをクリア</button>
+              </div>
+              <div class="tag-list" id="tag-list" role="listbox" aria-multiselectable="true"></div>
+              <p class="help-text">タグをクリックすると複数選択できます。</p>
+            </div>
           </div>
-          <div class="card-grid" role="tabpanel" id="panel-middle" aria-labelledby="tab-middle" data-panel="middle" hidden>
-            <article class="card">
-              <header>
-                <p class="category">益田東中学校エリア</p>
-                <h3>益田ユナイテッド バスケットボールクラブ</h3>
-              </header>
-              <p>全国大会出場経験のあるコーチ陣が直接指導。個々のスキルアップとチームワーク強化に特化したプログラム。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 中学1〜3年生</li>
-                <li><strong>開催:</strong> 火・木・日曜日</li>
-                <li><strong>場所:</strong> 益田市民体育館</li>
-              </ul>
-              <span class="more" aria-label="詳しくは益田ユナイテッド バスケットボールクラブまでお問い合わせください">詳細は各教室へ</span>
-            </article>
-            <article class="card">
-              <header>
-                <p class="category">横田中学校エリア</p>
-                <h3>石見リサーチ探究ラボ</h3>
-              </header>
-              <p>島根県立大学と連携した探究型学習。益田市内の地域課題をテーマにフィールドワークとデータ分析を行います。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 中学1〜3年生</li>
-                <li><strong>開催:</strong> 隔週土曜日 / 13:00-16:00</li>
-                <li><strong>場所:</strong> 益田市高津町 県立大学サテライト</li>
-              </ul>
-              <span class="more" aria-label="詳しくは石見リサーチ探究ラボまでお問い合わせください">詳細は各教室へ</span>
-            </article>
-            <article class="card">
-              <header>
-                <p class="category">匹見中学校エリア</p>
-                <h3>匹見アドベンチャーアカデミー</h3>
-              </header>
-              <p>山里に広がる益田市匹見町で行う自然体験プログラム。リバートレッキングや木工クラフトで自己表現力を育みます。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 中学1〜3年生</li>
-                <li><strong>開催:</strong> 月1回 / 9:30-15:30</li>
-                <li><strong>場所:</strong> 益田市匹見町 学びの里みちくさ</li>
-              </ul>
-              <span class="more" aria-label="詳しくは匹見アドベンチャーアカデミーまでお問い合わせください">詳細は各教室へ</span>
-            </article>
-          </div>
-          <div class="card-grid" role="tabpanel" id="panel-high" aria-labelledby="tab-high" data-panel="high" hidden>
-            <article class="card">
-              <header>
-                <p class="category">益田翔陽高校エリア</p>
-                <h3>グローカル探究ゼミ</h3>
-              </header>
-              <p>地域企業と連携した課題解決型ゼミ。ビジネスアイデア創出やプレゼンテーションの基礎を実践的に学ぶことができます。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 高校1〜3年生</li>
-                <li><strong>開催:</strong> 隔週土曜日 / 10:00-16:00</li>
-                <li><strong>場所:</strong> 益田市役所 コミュニティホール</li>
-              </ul>
-              <span class="more" aria-label="詳しくはグローカル探究ゼミまでお問い合わせください">詳細は各教室へ</span>
-            </article>
-            <article class="card">
-              <header>
-                <p class="category">益田東高校エリア</p>
-                <h3>益田クリエイティブスタジオ</h3>
-              </header>
-              <p>映像制作やグラフィックデザインを実践的に学ぶラボ。地域の企業案件を取り上げ、リアルな制作体験ができます。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 高校1〜3年生</li>
-                <li><strong>開催:</strong> 毎週金曜日 / 17:30-19:30</li>
-                <li><strong>場所:</strong> 益田市駅前町 MASUDA HUB クリエイティブルーム</li>
-              </ul>
-              <span class="more" aria-label="詳しくは益田クリエイティブスタジオまでお問い合わせください">詳細は各教室へ</span>
-            </article>
-            <article class="card">
-              <header>
-                <p class="category">吉賀高校連携</p>
-                <h3>石見起業チャレンジプログラム</h3>
-              </header>
-              <p>益田市と吉賀町の高校生が協働する起業体験講座。地域資源を活かしたビジネスプランづくりを専門家が伴走支援します。</p>
-              <ul class="meta">
-                <li><strong>対象:</strong> 高校1〜3年生</li>
-                <li><strong>開催:</strong> 全6回 / 土曜日集中</li>
-                <li><strong>場所:</strong> 益田市駅前町 シェアオフィスPORTO</li>
-              </ul>
-              <span class="more" aria-label="詳しくは石見起業チャレンジプログラムまでお問い合わせください">詳細は各教室へ</span>
-            </article>
+          <div class="results" role="region" aria-live="polite" aria-busy="false">
+            <div class="result-summary" id="result-summary"></div>
+            <div class="school-list" id="school-list" role="list"></div>
           </div>
         </div>
       </div>
@@ -259,7 +165,7 @@
               <p class="category">ウェルネス</p>
               <h3>石見ヨガスタジオ 夜クラス</h3>
             </header>
-            <p>呼吸と瞑想を取り入たリラックスプログラム。初心者でも安心して参加できる少人数制。</p>
+            <p>呼吸と瞑想を取り入れたリラックスプログラム。初心者でも安心して参加できる少人数制。</p>
             <ul class="meta">
               <li><strong>期間:</strong> 隔週水曜日 / 19:00-20:30</li>
               <li><strong>会場:</strong> 益田駅前スタジオ</li>
@@ -312,26 +218,1068 @@
     <p class="copyright">&copy; 2024 MASUDA Learning Hub</p>
   </footer>
   <script>
-    const tabs = document.querySelectorAll('.tabs .tab');
-    const panels = document.querySelectorAll('.tab-panels [data-panel]');
+    const SCHOOLS = [
+      {
+        name: '益田市立益田小学校',
+        type: 'elementary',
+        area: '益田市元町エリア',
+        address: '益田市元町6-30',
+        tags: ['公立', '小学校', '市街地', 'ICT活用', '放課後子ども教室', 'コミュニティ・スクール'],
+        notes: '市街地中心部にある大規模校。タブレット学習や英語専科など先進的な授業を進め、地域ボランティアと連携したキャリア教育も盛んです。',
+        programs: '地域の読み聞かせボランティアや放課後クラブと連携した学びを展開。'
+      },
+      {
+        name: '益田市立吉田小学校',
+        type: 'elementary',
+        area: '益田市乙吉町エリア',
+        address: '益田市乙吉町イ114',
+        tags: ['公立', '小学校', '市街地', 'コミュニティ・スクール', '自然体験'],
+        notes: '吉田川沿いの住宅地に位置し、地域行事と連動した学びが特徴。校内農園を活用した食育に取り組んでいます。'
+      },
+      {
+        name: '益田市立中西小学校',
+        type: 'elementary',
+        area: '益田市中吉田町エリア',
+        address: '益田市中吉田町37',
+        tags: ['公立', '小学校', '市街地', '小規模校', 'コミュニティ・スクール'],
+        notes: '少人数ならではのきめ細かなサポートが魅力。地域企業と連携したキャリア体験学習を継続的に実施しています。'
+      },
+      {
+        name: '益田市立高津小学校',
+        type: 'elementary',
+        area: '益田市高津町エリア',
+        address: '益田市高津町イ2320',
+        tags: ['公立', '小学校', '沿岸部', 'コミュニティ・スクール', 'スポーツ'],
+        notes: '日本海に近い高津地区の拠点校。水辺の環境を生かした総合学習や海洋教育、少年スポーツが盛んな学校です。'
+      },
+      {
+        name: '益田市立飯田小学校',
+        type: 'elementary',
+        area: '益田市飯田町エリア',
+        address: '益田市飯田町21-2',
+        tags: ['公立', '小学校', '市街地', 'コミュニティ・スクール', '国際交流'],
+        notes: '益田駅に近い立地。国際理解教育やALTとの交流、読書活動が充実しており、地域図書館との連携も進んでいます。'
+      },
+      {
+        name: '益田市立西益田小学校',
+        type: 'elementary',
+        area: '益田市乙吉町エリア',
+        address: '益田市乙吉町イ331-3',
+        tags: ['公立', '小学校', '市街地', 'コミュニティ・スクール', '児童クラブ'],
+        notes: '住宅地が広がる西益田地区の中核校。地域と協働した防災学習や児童クラブを併設し、安全・安心の体制を整えています。'
+      },
+      {
+        name: '益田市立東仙道小学校',
+        type: 'elementary',
+        area: '益田市東町エリア',
+        address: '益田市東町12-6',
+        tags: ['公立', '小学校', '市街地', '文化財学習', 'コミュニティ・スクール'],
+        notes: '歴史ある寺社が多い東仙道地区の伝統校。石見神楽など地域文化を生かした総合学習が特色です。'
+      },
+      {
+        name: '益田市立横田小学校',
+        type: 'elementary',
+        area: '益田市高津町横田エリア',
+        address: '益田市高津町イ2955',
+        tags: ['公立', '小学校', '市街地', '小規模校', '自然体験'],
+        notes: '周囲を田園が囲む横田地区の学校。里山を活用した自然体験や複式学級による丁寧な指導が魅力です。'
+      },
+      {
+        name: '益田市立二条小学校',
+        type: 'elementary',
+        area: '益田市二条町エリア',
+        address: '益田市二条町イ127',
+        tags: ['公立', '小学校', '中山間地域', '小規模校', 'スクールバス'],
+        notes: '匹見川上流に近い中山間地域の学校。スクールバス運行や地域行事と連動した学習が盛んです。'
+      },
+      {
+        name: '益田市立七尾小学校',
+        type: 'elementary',
+        area: '益田市七尾町エリア',
+        address: '益田市七尾町8',
+        tags: ['公立', '小学校', '沿岸部', '小規模校', '自然体験'],
+        notes: '海と山に囲まれた七尾町の学校。海洋体験や森林体験を通じたふるさと教育を実践しています。'
+      },
+      {
+        name: '益田市立鎌手小学校',
+        type: 'elementary',
+        area: '益田市鎌手町エリア',
+        address: '益田市鎌手町ロ77-3',
+        tags: ['公立', '小学校', '沿岸部', 'コミュニティ・スクール', 'スクールバス'],
+        notes: '日本海沿いの漁業地域に位置。神楽学習や海の安全教室など地域密着の学びが魅力です。'
+      },
+      {
+        name: '益田市立匹見小学校',
+        type: 'elementary',
+        area: '益田市匹見町エリア',
+        address: '益田市匹見町匹見イ982',
+        tags: ['公立', '小学校', '山間地域', '小規模校', 'スクールバス', 'コミュニティ・スクール'],
+        notes: '中国山地の豊かな自然に囲まれた小規模校。森林環境教育や地域人材による体験学習が充実しています。',
+        programs: '山村留学制度「匹見Rise」など全国からの受け入れ実績があります。'
+      },
+      {
+        name: '益田市立美都小学校',
+        type: 'elementary',
+        area: '益田市美都町エリア',
+        address: '益田市美都町都茂1186',
+        tags: ['公立', '小学校', '山間地域', '小規模校', 'コミュニティ・スクール'],
+        notes: '旧美都町の中心部にある小学校。茶摘みや郷土芸能など地域資源を活かした学習を展開しています。'
+      },
+      {
+        name: '益田市立都茂小学校',
+        type: 'elementary',
+        area: '益田市美都町都茂エリア',
+        address: '益田市美都町都茂1523',
+        tags: ['公立', '小学校', '山間地域', '小規模校', 'スクールバス'],
+        notes: '山間地にある複式学級の学校。森づくり学習や地域との協働による体験活動が特色です。'
+      },
+      {
+        name: '益田市立益田中学校',
+        type: 'middle',
+        area: '益田市染羽町エリア',
+        address: '益田市染羽町1-5',
+        tags: ['公立', '中学校', '市街地', '部活動充実', '探究学習'],
+        notes: '市中心部の総合校。部活動数が多く、地域と連動した総合的な探究学習を推進しています。'
+      },
+      {
+        name: '益田市立高津中学校',
+        type: 'middle',
+        area: '益田市高津町エリア',
+        address: '益田市高津町イ2360',
+        tags: ['公立', '中学校', '沿岸部', '部活動充実', 'キャリア教育'],
+        notes: '高津地区の拠点中学校。キャリア教育や地域企業との連携授業を展開し、海洋教育も取り入れています。'
+      },
+      {
+        name: '益田市立横田中学校',
+        type: 'middle',
+        area: '益田市高津町横田エリア',
+        address: '益田市高津町イ2745',
+        tags: ['公立', '中学校', '市街地', '小規模校', '地域連携'],
+        notes: '小規模ながら地域密着型の学校。小中連携による英語強化や農業体験が特徴です。'
+      },
+      {
+        name: '益田市立匹見中学校',
+        type: 'middle',
+        area: '益田市匹見町エリア',
+        address: '益田市匹見町匹見イ1104',
+        tags: ['公立', '中学校', '山間地域', '小規模校', '寮・下宿対応', 'スクールバス'],
+        notes: '中国山地の自然の中で学ぶ中学校。遠距離通学を支える下宿制度や山村留学を受け入れています。',
+        programs: '森林環境学習やカヌー体験など、アウトドアプログラムが豊富です。'
+      },
+      {
+        name: '益田市立美都中学校',
+        type: 'middle',
+        area: '益田市美都町エリア',
+        address: '益田市美都町都茂1186-2',
+        tags: ['公立', '中学校', '山間地域', '小規模校', 'コミュニティ・スクール'],
+        notes: '地域ぐるみで学びを支えるコミュニティ・スクール。茶どころ美都の文化を活かしたふるさと学習を行っています。'
+      },
+      {
+        name: '益田東中学校',
+        type: 'middle',
+        area: '益田市久城町エリア',
+        address: '益田市久城町457',
+        tags: ['私立', '中学校', '市街地', '中高一貫', '探究学習', '部活動充実'],
+        notes: '益田東高等学校と連携した中高一貫校。難関大学進学を見据えた探究型学習と強化指定クラブが充実しています。'
+      },
+      {
+        name: '島根県立益田高等学校',
+        type: 'high',
+        area: '益田市東町エリア',
+        address: '益田市東町20-33',
+        tags: ['公立', '高校', '全日制', '普通科', '進学校', '探究学習', '部活動充実'],
+        notes: '県内屈指の進学校。理数探究類型や地域探究プロジェクトを推進し、全国規模の学びの機会が豊富です。'
+      },
+      {
+        name: '島根県立益田翔陽高等学校',
+        type: 'high',
+        area: '益田市昭和町エリア',
+        address: '益田市昭和町12-1',
+        tags: ['公立', '高校', '全日制', '専門学科', 'キャリア教育', '部活動充実'],
+        notes: '普通科に加え産業系・福祉系など多彩な学科を設置。地域企業と連動した実習や資格取得支援が手厚い学校です。'
+      },
+      {
+        name: '益田東高等学校',
+        type: 'high',
+        area: '益田市久城町エリア',
+        address: '益田市久城町457',
+        tags: ['私立', '高校', '全日制', '中高一貫', '進学コース', '部活動強化'],
+        notes: '中高一貫の私立校。特別進学・グローバルなど複数コースを設置し、寮完備で全国から生徒を受け入れています。'
+      },
+      {
+        name: '明誠高等学校',
+        type: 'high',
+        area: '益田市三宅町エリア',
+        address: '益田市三宅町7-37',
+        tags: ['私立', '高校', '全日制', '通信併設', 'キャリア教育', '部活動充実'],
+        notes: '普通科・特別進学科・情報科など多様なコースを展開。探究活動と地域連携プロジェクトを重視する私立高校です。'
+      }
+    ];
 
-    tabs.forEach((tab) => {
-      tab.addEventListener('click', () => {
-        const target = tab.dataset.target;
+    const NEARBY_PROGRAMS = {
+      '益田市元町エリア': {
+        kids: [
+          {
+            name: '益田キッズ英会話クラブ',
+            category: '語学',
+            venue: '益田市民学習センター 2F',
+            schedule: '毎週土曜 10:00-11:30',
+            description: 'ALT講師とゲームを通じて英語に触れる小学生向けクラス。フォニックスやスピーキングを自然に身につけます。'
+          },
+          {
+            name: '元町アートラボ',
+            category: 'アート',
+            venue: '元町公民館 創作室',
+            schedule: '隔週日曜 9:30-11:30',
+            description: '絵画・クラフト・デジタルアートを体験できる子ども造形教室。地域アーティストが作品づくりをサポートします。'
+          }
+        ],
+        adults: [
+          {
+            name: '益田夜間ビジネスカレッジ',
+            category: 'キャリア',
+            venue: '益田市産業支援センター',
+            schedule: '毎週火曜 19:00-21:00',
+            description: 'マーケティング基礎とデータ分析を学ぶ社会人講座。地元企業の事例を題材に実践力を高めます。'
+          },
+          {
+            name: '元町ウェルネスピラティス',
+            category: '健康',
+            venue: '元町コミュニティスタジオ',
+            schedule: '毎週木曜 20:00-21:00',
+            description: '体幹を整える夜クラス。初心者歓迎で、仕事帰りにリフレッシュしたい方に人気です。'
+          }
+        ]
+      },
+      '益田市乙吉町エリア': {
+        kids: [
+          {
+            name: '乙吉STEMラボ',
+            category: '科学',
+            venue: '乙吉町学習室',
+            schedule: '毎週土曜 13:30-15:00',
+            description: 'ロボット制作とプログラミングに挑戦する小中学生向け講座。大会出場を目指すチームもあります。'
+          },
+          {
+            name: '益田FCジュニア 乙吉校',
+            category: 'スポーツ',
+            venue: '乙吉多目的グラウンド',
+            schedule: '毎週水・金曜 17:30-19:00',
+            description: '地域密着型のサッカースクール。テクニック指導とチームワークを大切にしたトレーニングが特徴です。'
+          }
+        ],
+        adults: [
+          {
+            name: '乙吉和菓子研究会',
+            category: '文化',
+            venue: '乙吉町公民館 調理室',
+            schedule: '第2・第4水曜 10:00-12:00',
+            description: '季節の上生菓子や地域の銘菓づくりに挑戦。地元菓子職人による丁寧なレクチャーが好評です。'
+          },
+          {
+            name: '夜のストレッチ&ヨガ',
+            category: 'ウェルネス',
+            venue: '乙吉ウェルネススタジオ',
+            schedule: '毎週月曜 19:30-20:30',
+            description: '在宅ワークで凝り固まった身体を整える少人数クラス。呼吸法とストレッチで疲労回復を促します。'
+          }
+        ]
+      },
+      '益田市中吉田町エリア': {
+        kids: [
+          {
+            name: '中吉田サイエンスクラブ',
+            category: '科学',
+            venue: '中吉田交流センター',
+            schedule: '毎月第1土曜 10:00-12:00',
+            description: '実験や観察を通じて科学の楽しさを体感。地域の理科教員OBが指導します。'
+          },
+          {
+            name: '吉田アフタースクール英語',
+            category: '語学',
+            venue: '吉田地区学習支援室',
+            schedule: '毎週火・木曜 16:00-18:00',
+            description: '放課後に通える英語学習サポート。宿題サポートと英検対策も実施しています。'
+          }
+        ],
+        adults: [
+          {
+            name: '中吉田ナイトランクラブ',
+            category: 'スポーツ',
+            venue: '中吉田町周回コース',
+            schedule: '毎週水曜 20:00集合',
+            description: '仕事終わりに集まるランニングサークル。ペース別グループで初心者も参加しやすい環境です。'
+          },
+          {
+            name: '季節のやさしい薬膳教室',
+            category: 'ライフスタイル',
+            venue: '中吉田町コミュニティ台所',
+            schedule: '毎月第3土曜 14:00-16:00',
+            description: '身近な食材でできる薬膳レシピを学ぶ講座。家庭で再現しやすいメニューが人気です。'
+          }
+        ]
+      },
+      '益田市高津町エリア': {
+        kids: [
+          {
+            name: '高津ビーチアクアキッズ',
+            category: 'スポーツ',
+            venue: '高津海浜プール',
+            schedule: '夏季限定 毎週日曜 9:00-11:00',
+            description: '水泳とライフセービングの基礎を学ぶプログラム。海辺の安全教室もセットで実施します。'
+          },
+          {
+            name: '高津ミュージックアンサンブル',
+            category: '音楽',
+            venue: '高津文化ホール',
+            schedule: '毎週土曜 15:00-17:00',
+            description: '吹奏楽と合唱を体験できる音楽教室。演奏会や地域イベントへの出演機会があります。'
+          }
+        ],
+        adults: [
+          {
+            name: '高津シーサイドヨガ',
+            category: 'ウェルネス',
+            venue: '高津海浜公園 芝生広場',
+            schedule: '毎週土曜 7:30-8:30',
+            description: '朝の海風を感じながら行うリフレッシュヨガ。マインドフルネスのミニレクチャー付き。'
+          },
+          {
+            name: '高津クラフトビール講座',
+            category: '食・飲',
+            venue: '高津町まちの研究室',
+            schedule: '毎月第2金曜 19:00-21:00',
+            description: '地元産ホップを使ったビールづくり体験。発酵の仕組みとフードペアリングを学びます。'
+          }
+        ]
+      },
+      '益田市飯田町エリア': {
+        kids: [
+          {
+            name: '飯田イングリッシュアフタースクール',
+            category: '語学',
+            venue: '飯田まちの教室',
+            schedule: '毎週火・金曜 17:00-18:30',
+            description: '英語で工作や科学実験に挑戦。英語の4技能を楽しく伸ばすアクティブラーニング型クラスです。'
+          },
+          {
+            name: '飯田ジュニア書道',
+            category: '文化',
+            venue: '飯田町文化センター',
+            schedule: '毎週土曜 14:00-15:30',
+            description: '基礎から段位取得までサポートする書道教室。毛筆・硬筆の両方を丁寧に指導します。'
+          }
+        ],
+        adults: [
+          {
+            name: '飯田まちゼミ パソコン塾',
+            category: 'キャリア',
+            venue: '飯田町商店街オフィス',
+            schedule: '全4回 / 平日夜 19:00-20:30',
+            description: 'Excel・Wordの基礎と業務効率化テクニックを学ぶ短期講座。少人数制で質問しやすい環境です。'
+          },
+          {
+            name: '飯田サウンドサロン',
+            category: '音楽',
+            venue: '飯田交流スタジオ',
+            schedule: '毎週金曜 20:00-21:30',
+            description: '大人のためのバンド・セッション教室。楽器初心者も基礎から参加できるプログラムです。'
+          }
+        ]
+      },
+      '益田市東町エリア': {
+        kids: [
+          {
+            name: '東町神楽キッズクラブ',
+            category: '文化',
+            venue: '東町神楽殿',
+            schedule: '毎週木曜 18:00-19:30',
+            description: '石見神楽の舞と囃子を学ぶ伝統芸能教室。衣装体験や地域の祭り出演もあります。'
+          },
+          {
+            name: '益田STEAMラボ 東町',
+            category: '科学',
+            venue: '益田市立図書館ラボ室',
+            schedule: '毎週日曜 10:30-12:00',
+            description: '3Dプリンタや電子工作に触れながら創造力を育むプログラム。中高生の自由研究サポートも充実。'
+          }
+        ],
+        adults: [
+          {
+            name: '東町歴史まち歩き講座',
+            category: '文化',
+            venue: '東町観光案内所 集合',
+            schedule: '毎月第1日曜 9:00-11:30',
+            description: '史跡を巡りながら郷土史を学ぶフィールドワーク型講座。案内人による解説付きです。'
+          },
+          {
+            name: '東町イブニングピラティス',
+            category: 'ウェルネス',
+            venue: '東町コミュニティホール',
+            schedule: '毎週水曜 19:30-20:30',
+            description: 'コアを整えるナイトクラス。少人数制で姿勢改善と体力向上をサポートします。'
+          }
+        ]
+      },
+      '益田市高津町横田エリア': {
+        kids: [
+          {
+            name: '横田サッカースクール',
+            category: 'スポーツ',
+            venue: '横田交流広場',
+            schedule: '毎週火・土曜 17:00-18:30',
+            description: '複式学級の子どもたちが集うサッカークラブ。個々のレベルに合わせた指導で自信を育みます。'
+          },
+          {
+            name: '横田アウトドアアドベンチャー',
+            category: '自然体験',
+            venue: '横田里山フィールド',
+            schedule: '毎月第2土曜 9:00-12:00',
+            description: '里山での自然観察・焚き火・クラフトを楽しむ探検教室。親子参加も歓迎です。'
+          }
+        ],
+        adults: [
+          {
+            name: '横田ナチュラルガーデン倶楽部',
+            category: 'ライフスタイル',
+            venue: '横田コミュニティガーデン',
+            schedule: '隔週日曜 8:30-10:30',
+            description: '無農薬ハーブや季節野菜を育てるガーデニングサークル。講師による園芸ワークが人気です。'
+          },
+          {
+            name: '横田ウィークリーヨガ',
+            category: 'ウェルネス',
+            venue: '横田地区交流センター',
+            schedule: '毎週金曜 19:00-20:00',
+            description: '呼吸法とストレッチで心身を整える夜ヨガ。初心者向けの基礎クラスです。'
+          }
+        ]
+      },
+      '益田市二条町エリア': {
+        kids: [
+          {
+            name: '二条川ネイチャースクール',
+            category: '自然体験',
+            venue: '二条町 河川敷',
+            schedule: '毎月第3土曜 9:30-12:00',
+            description: '川遊びと環境学習を組み合わせたアウトドアプログラム。地域のNPOが安全管理を行います。'
+          },
+          {
+            name: '二条里山アートクラブ',
+            category: 'アート',
+            venue: '二条町古民家スタジオ',
+            schedule: '毎週土曜 13:00-15:00',
+            description: '自然素材を活用した造形活動が中心。里山の植物を使った染色体験も人気です。'
+          }
+        ],
+        adults: [
+          {
+            name: '二条発酵ラボ',
+            category: '食',
+            venue: '二条町交流台所',
+            schedule: '毎月第2木曜 10:00-12:00',
+            description: '味噌・麹づくりなど発酵食品に特化したワークショップ。発酵マイスターが指導します。'
+          },
+          {
+            name: '二条温泉ヨガリトリート',
+            category: 'ウェルネス',
+            venue: '二条温泉 休憩ラウンジ',
+            schedule: '毎週日曜 18:00-19:30',
+            description: '温泉入浴とセットで楽しむリラクゼーションヨガ。週末の疲れを癒したい人に人気です。'
+          }
+        ]
+      },
+      '益田市七尾町エリア': {
+        kids: [
+          {
+            name: '七尾マリンキッズクラブ',
+            category: '自然体験',
+            venue: '七尾町海浜センター',
+            schedule: '春〜秋 毎月第1日曜 10:00-12:00',
+            description: '磯遊びやシーカヤック体験を通じて海の生き物を学ぶ体験教室。安全講習付きです。'
+          },
+          {
+            name: '七尾太鼓ジュニア',
+            category: '文化',
+            venue: '七尾地区公民館',
+            schedule: '毎週金曜 18:00-19:30',
+            description: '地域の太鼓グループが指導するリズム教室。地域の祭り出演が目標です。'
+          }
+        ],
+        adults: [
+          {
+            name: '七尾シーサイドウォーキング',
+            category: 'スポーツ',
+            venue: '七尾町海岸遊歩道',
+            schedule: '毎週水曜 8:00集合',
+            description: '海辺を歩く健康づくりプログラム。ストレッチと海洋環境ミニ講座を組み合わせています。'
+          },
+          {
+            name: '七尾クラフト珈琲講座',
+            category: 'ライフスタイル',
+            venue: '七尾港カフェ',
+            schedule: '毎月第4土曜 15:00-17:00',
+            description: '自家焙煎コーヒーの淹れ方とフードペアリングを学ぶ少人数講座。テイスティング体験付き。'
+          }
+        ]
+      },
+      '益田市鎌手町エリア': {
+        kids: [
+          {
+            name: '鎌手神楽ジュニア講座',
+            category: '文化',
+            venue: '鎌手神社 神楽殿',
+            schedule: '毎週火曜 18:00-19:30',
+            description: '舞と囃子の基礎から指導する神楽教室。保護者の見学も可能です。'
+          },
+          {
+            name: '鎌手ビーチサーフィンスクール',
+            category: 'スポーツ',
+            venue: '鎌手海岸',
+            schedule: '夏季限定 土日 9:00-11:00',
+            description: 'プロサーファー監修のジュニアクラス。海の安全講習とセットで実施します。'
+          }
+        ],
+        adults: [
+          {
+            name: '鎌手漁師めし料理塾',
+            category: '食',
+            venue: '鎌手町漁協施設',
+            schedule: '毎月第2土曜 10:30-13:00',
+            description: '旬の魚介を使った漁師料理を学ぶ料理教室。地元漁師による漁談も楽しめます。'
+          },
+          {
+            name: '鎌手ビーチフィット',
+            category: 'ウェルネス',
+            venue: '鎌手海岸特設エリア',
+            schedule: '毎週土曜 7:00-8:00',
+            description: '砂浜でのサーキットトレーニング。自然の抵抗を活かした全身エクササイズです。'
+          }
+        ]
+      },
+      '益田市匹見町エリア': {
+        kids: [
+          {
+            name: '匹見アウトドアアカデミー',
+            category: '自然体験',
+            venue: '匹見峡ビジターセンター',
+            schedule: '毎月第2土曜 9:00-12:00',
+            description: '渓流トレッキングやツリークライミングが楽しめる自然学校。季節ごとの体験プログラムを用意。'
+          },
+          {
+            name: '匹見木工キッズラボ',
+            category: 'クラフト',
+            venue: '匹見森林体験館',
+            schedule: '毎月第4土曜 13:00-15:30',
+            description: '地域材を使った木工クラフトに挑戦。親子で参加できる人気講座です。'
+          }
+        ],
+        adults: [
+          {
+            name: '匹見マウンテンフィット',
+            category: 'スポーツ',
+            venue: '匹見運動公園',
+            schedule: '毎週日曜 8:30-10:00',
+            description: '山間地の地形を活かしたトレイルランとクロスフィットのハイブリッドトレーニング。'
+          },
+          {
+            name: '匹見薬草ガーデン講座',
+            category: 'ライフスタイル',
+            venue: '匹見薬草園',
+            schedule: '毎月第1土曜 10:00-12:00',
+            description: '薬草の育て方とセルフケアに活かす方法を学ぶ講座。ハーブティーの試飲付きです。'
+          }
+        ]
+      },
+      '益田市美都町エリア': {
+        kids: [
+          {
+            name: '美都茶畑体験スクール',
+            category: '農業体験',
+            venue: '美都町 茶園',
+            schedule: '春・秋シーズン 土曜 9:00-12:00',
+            description: '茶摘みや製茶体験を通じて地域の産業を学ぶ体験型プログラム。親子参加も歓迎です。'
+          },
+          {
+            name: '美都リコーダーアンサンブル',
+            category: '音楽',
+            venue: '美都文化センター 音楽室',
+            schedule: '毎週金曜 17:00-18:00',
+            description: '基礎からアンサンブル演奏を楽しむ音楽クラブ。発表会や地域イベントでの演奏機会があります。'
+          }
+        ],
+        adults: [
+          {
+            name: '美都発酵食カレッジ',
+            category: '食',
+            venue: '美都町農産加工室',
+            schedule: '毎月第2土曜 13:30-16:00',
+            description: '麹づくりや季節の保存食を学ぶ講座。地域の発酵文化を継承することを目指しています。'
+          },
+          {
+            name: '美都ナイトリフレッシュヨガ',
+            category: 'ウェルネス',
+            venue: '美都温泉 多目的室',
+            schedule: '毎週火曜 19:30-20:30',
+            description: '温泉入浴とセットでリラックスできる夜ヨガ。ストレスケアと睡眠の質向上をサポートします。'
+          }
+        ]
+      },
+      '益田市美都町都茂エリア': {
+        kids: [
+          {
+            name: '都茂リバートレイルクラブ',
+            category: '自然体験',
+            venue: '都茂川周辺',
+            schedule: '毎月第1土曜 9:30-12:00',
+            description: '川遊びとネイチャーゲームで自然を学ぶアウトドア教室。安全講習付きで初参加でも安心です。'
+          },
+          {
+            name: '都茂里山サイエンス',
+            category: '科学',
+            venue: '都茂地域センター',
+            schedule: '隔月第3日曜 10:00-12:00',
+            description: '植物観察や星空観測を通して理科への関心を高めるフィールドワーク型講座。'
+          }
+        ],
+        adults: [
+          {
+            name: '都茂薬草と養生講座',
+            category: 'ライフスタイル',
+            venue: '都茂薬草研究室',
+            schedule: '毎月第2日曜 13:00-15:00',
+            description: '山野草の見分け方と家庭で活かすセルフケア方法を学びます。試飲とレシピ冊子付き。'
+          },
+          {
+            name: '都茂木工アトリエ',
+            category: 'クラフト',
+            venue: '都茂木工房',
+            schedule: '毎週土曜 14:00-16:30',
+            description: '家具職人が指導する木工ワークショップ。暮らしの小物から家具づくりまで挑戦できます。'
+          }
+        ]
+      },
+      '益田市染羽町エリア': {
+        kids: [
+          {
+            name: '染羽イングリッシュキャンプ',
+            category: '語学',
+            venue: '染羽町国際交流センター',
+            schedule: '夏休み集中 5日間',
+            description: '外国人留学生と交流しながら英語漬けで過ごす短期集中プログラム。プレゼン発表も実施します。'
+          },
+          {
+            name: '染羽ジュニアバスケット',
+            category: 'スポーツ',
+            venue: '染羽体育館',
+            schedule: '毎週火・金曜 17:30-19:00',
+            description: '基礎体力づくりとチーム練習をバランスよく行うジュニアクラブ。大会出場を目指します。'
+          }
+        ],
+        adults: [
+          {
+            name: '染羽イブニング大学',
+            category: 'キャリア',
+            venue: '染羽町学習ラボ',
+            schedule: '隔週水曜 19:00-21:00',
+            description: 'ビジネスリーダーを目指す社会人向け講座。プレゼン・ファシリテーション・DX入門を学びます。'
+          },
+          {
+            name: '染羽ナイトジャズセッション',
+            category: '音楽',
+            venue: '染羽ジャズバー',
+            schedule: '毎月第3金曜 20:00-22:00',
+            description: 'アドリブ演奏を学びながらセッションを楽しむ夜クラス。初心者向けレクチャーも用意しています。'
+          }
+        ]
+      },
+      '益田市久城町エリア': {
+        kids: [
+          {
+            name: '久城プログラミングキッズ',
+            category: 'ICT',
+            venue: '久城町イノベーションルーム',
+            schedule: '毎週土曜 10:00-11:30',
+            description: 'Scratchやmicro:bitでゲーム制作に挑戦。発表会で成果を披露します。'
+          },
+          {
+            name: '久城ダンススタジオ ジュニア',
+            category: 'ダンス',
+            venue: '久城ダンススタジオ',
+            schedule: '毎週木曜 17:00-18:30',
+            description: 'ヒップホップとK-POPカバーダンスを学ぶクラス。初心者でも基礎から丁寧に指導します。'
+          }
+        ],
+        adults: [
+          {
+            name: '久城マネジメントスクール',
+            category: 'キャリア',
+            venue: '久城町学びの館',
+            schedule: '隔週金曜 19:00-21:00',
+            description: '組織マネジメントとチームづくりを学ぶ社会人講座。ケーススタディとディスカッション中心。'
+          },
+          {
+            name: '久城フィットネスブートキャンプ',
+            category: 'スポーツ',
+            venue: '久城体育館',
+            schedule: '毎週月・木曜 20:00-21:00',
+            description: 'サーキットトレーニングとHIITを組み合わせた集中プログラム。短時間で効果を実感できます。'
+          }
+        ]
+      },
+      '益田市昭和町エリア': {
+        kids: [
+          {
+            name: '昭和ロボティクスラボ',
+            category: '科学',
+            venue: '昭和町テクノロジーセンター',
+            schedule: '毎週土曜 14:00-16:00',
+            description: 'ロボット競技会を目指す小中学生チーム。プログラミングと機械設計を実践的に学びます。'
+          },
+          {
+            name: '昭和ジュニアバレーボール',
+            category: 'スポーツ',
+            venue: '昭和町体育館',
+            schedule: '毎週火・木曜 17:30-19:00',
+            description: 'ミニバレーから始める初心者歓迎のクラブ。基礎体力づくりとチームワークを大切にしています。'
+          }
+        ],
+        adults: [
+          {
+            name: '昭和町ビジネス英語塾',
+            category: '語学',
+            venue: '昭和町学習スタジオ',
+            schedule: '毎週水曜 19:30-21:00',
+            description: '会議やメールで使える実践英語を学ぶ社会人講座。オンライン併用で通いやすいと好評です。'
+          },
+          {
+            name: '昭和シティラン&トレイル',
+            category: 'スポーツ',
+            venue: '昭和町駅前集合',
+            schedule: '毎週日曜 7:00-9:00',
+            description: '市街地と山道を走るクロストレーニングサークル。レベル別グループで安心して参加できます。'
+          }
+        ]
+      },
+      '益田市三宅町エリア': {
+        kids: [
+          {
+            name: '三宅クリエイティブラボ',
+            category: 'アート',
+            venue: '三宅町クリエイティブハブ',
+            schedule: '毎週土曜 10:00-12:00',
+            description: '動画制作・写真・デザインを学ぶ中高生向け講座。作品は地域イベントで発表します。'
+          },
+          {
+            name: '三宅イマージョン英語',
+            category: '語学',
+            venue: '三宅ラーニングスペース',
+            schedule: '毎週水曜 17:00-18:30',
+            description: '英語で理科や社会を学ぶCLILスタイルの授業。プレゼンテーション力も鍛えます。'
+          }
+        ],
+        adults: [
+          {
+            name: '三宅ナイトクリエイティブ講座',
+            category: 'キャリア',
+            venue: '三宅町クリエイティブハブ',
+            schedule: '毎週木曜 19:00-21:00',
+            description: 'デザイン思考とプレゼン術を学ぶ社会人講座。地域課題解決をテーマに実践します。'
+          },
+          {
+            name: '三宅メディテーションサークル',
+            category: 'ウェルネス',
+            venue: '三宅町ホリスティックルーム',
+            schedule: '毎週火曜 20:00-21:00',
+            description: 'マインドフルネス瞑想と呼吸法で心を整える夜のサークル。オンライン参加も可能です。'
+          }
+        ]
+      }
+    };
 
-        tabs.forEach((item) => {
-          const isActive = item === tab;
-          item.classList.toggle('active', isActive);
-          item.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        });
+    const typeLabels = {
+      elementary: '小学校',
+      middle: '中学校',
+      high: '高校'
+    };
 
-        panels.forEach((panel) => {
-          const shouldShow = panel.dataset.panel === target;
-          panel.classList.toggle('active', shouldShow);
-          panel.toggleAttribute('hidden', !shouldShow);
-        });
+    const typeOrder = {
+      elementary: 0,
+      middle: 1,
+      high: 2
+    };
+
+    const state = {
+      types: new Set(Object.keys(typeLabels)),
+      tags: new Set(),
+      term: ''
+    };
+
+    const searchInput = document.getElementById('school-search-input');
+    const typeCheckboxes = document.querySelectorAll('input[name="school-type"]');
+    const tagList = document.getElementById('tag-list');
+    const schoolList = document.getElementById('school-list');
+    const resultSummary = document.getElementById('result-summary');
+    const clearTagsButton = document.getElementById('clear-tag-filter');
+    const resultsRegion = document.querySelector('.results');
+
+    const allTags = Array.from(new Set(SCHOOLS.flatMap((school) => school.tags))).sort((a, b) =>
+      a.localeCompare(b, 'ja')
+    );
+
+    const tagButtons = new Map();
+
+    allTags.forEach((tag) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'tag-chip';
+      button.textContent = tag;
+      button.setAttribute('role', 'option');
+      button.setAttribute('aria-pressed', 'false');
+      button.dataset.tag = tag;
+      button.addEventListener('click', () => {
+        const isSelected = state.tags.has(tag);
+        if (isSelected) {
+          state.tags.delete(tag);
+        } else {
+          state.tags.add(tag);
+        }
+        button.classList.toggle('active', !isSelected);
+        button.setAttribute('aria-pressed', (!isSelected).toString());
+        clearTagsButton.hidden = state.tags.size === 0;
+        render();
+      });
+      tagButtons.set(tag, button);
+      tagList.appendChild(button);
+    });
+
+    clearTagsButton.addEventListener('click', () => {
+      state.tags.clear();
+      tagButtons.forEach((button) => {
+        button.classList.remove('active');
+        button.setAttribute('aria-pressed', 'false');
+      });
+      clearTagsButton.hidden = true;
+      render();
+    });
+
+    searchInput.addEventListener('input', (event) => {
+      state.term = event.target.value.trim();
+      render();
+    });
+
+    typeCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        const { value, checked } = checkbox;
+        if (checked) {
+          state.types.add(value);
+        } else {
+          state.types.delete(value);
+          if (state.types.size === 0) {
+            state.types.add(value);
+            checkbox.checked = true;
+            return;
+          }
+        }
+        render();
       });
     });
+
+    function normalizeText(value) {
+      return value.toString().toLowerCase().normalize('NFKC');
+    }
+
+    function filterSchools() {
+      const normalizedTerm = normalizeText(state.term);
+      return SCHOOLS.filter((school) => state.types.has(school.type))
+        .filter((school) => {
+          if (!normalizedTerm) return true;
+          const keywords = [
+            school.name,
+            school.area,
+            school.address,
+            school.notes,
+            school.programs || '',
+            ...(school.keywords || []),
+            ...school.tags
+          ].join(' ');
+          return normalizeText(keywords).includes(normalizedTerm);
+        })
+        .filter((school) => {
+          if (state.tags.size === 0) return true;
+          return Array.from(state.tags).every((tag) => school.tags.includes(tag));
+        })
+        .sort((a, b) => {
+          const typeDiff = typeOrder[a.type] - typeOrder[b.type];
+          if (typeDiff !== 0) return typeDiff;
+          return a.name.localeCompare(b.name, 'ja');
+        });
+    }
+
+    function addDetail(detailList, term, value) {
+      if (!value) return;
+      const wrapper = document.createElement('div');
+      const dt = document.createElement('dt');
+      dt.textContent = term;
+      const dd = document.createElement('dd');
+      dd.textContent = value;
+      wrapper.append(dt, dd);
+      detailList.appendChild(wrapper);
+    }
+
+    function createProgramMetaItem(term, value) {
+      if (!value) return null;
+      const li = document.createElement('li');
+      const strong = document.createElement('strong');
+      strong.textContent = `${term}:`;
+      li.append(strong, document.createTextNode(` ${value}`));
+      return li;
+    }
+
+    function createProgramList(title, programs, audience) {
+      const section = document.createElement('section');
+      section.className = `nearby-group nearby-${audience}`;
+
+      const heading = document.createElement('h5');
+      heading.textContent = title;
+      section.appendChild(heading);
+
+      if (!programs || programs.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'nearby-empty';
+        empty.textContent = '現在登録されている講座はありません。';
+        section.appendChild(empty);
+        return section;
+      }
+
+      const list = document.createElement('ul');
+      list.className = 'nearby-programs';
+
+      programs.forEach((program) => {
+        const item = document.createElement('li');
+        item.className = 'nearby-program';
+
+        const header = document.createElement('div');
+        header.className = 'program-header';
+
+        const category = document.createElement('span');
+        category.className = 'program-category';
+        category.textContent = program.category;
+
+        const name = document.createElement('strong');
+        name.className = 'program-name';
+        name.textContent = program.name;
+
+        header.append(category, name);
+
+        const description = document.createElement('p');
+        description.className = 'program-description';
+        description.textContent = program.description;
+
+        const meta = document.createElement('ul');
+        meta.className = 'program-meta';
+
+        const venue = createProgramMetaItem('会場', program.venue);
+        const schedule = createProgramMetaItem('スケジュール', program.schedule);
+        const contact = createProgramMetaItem('問い合わせ', program.contact);
+
+        [venue, schedule, contact].forEach((entry) => {
+          if (entry) meta.appendChild(entry);
+        });
+
+        item.append(header, description);
+        if (meta.childElementCount > 0) {
+          item.appendChild(meta);
+        }
+
+        list.appendChild(item);
+      });
+
+      section.appendChild(list);
+      return section;
+    }
+
+    function render() {
+      resultsRegion.setAttribute('aria-busy', 'true');
+      const results = filterSchools();
+      schoolList.replaceChildren();
+
+      if (results.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'empty-state';
+        empty.textContent = '該当する学校が見つかりませんでした。検索条件を見直してください。';
+        schoolList.appendChild(empty);
+      } else {
+        results.forEach((school) => {
+          const article = document.createElement('article');
+          article.className = 'school-card';
+          article.setAttribute('role', 'listitem');
+          article.dataset.type = school.type;
+
+          const header = document.createElement('header');
+          const typeEl = document.createElement('p');
+          typeEl.className = 'school-type';
+          typeEl.textContent = typeLabels[school.type];
+          const nameEl = document.createElement('h3');
+          nameEl.textContent = school.name;
+          header.append(typeEl, nameEl);
+
+          const areaEl = document.createElement('p');
+          areaEl.className = 'school-area';
+          areaEl.textContent = school.area;
+
+          const detailList = document.createElement('dl');
+          detailList.className = 'school-detail';
+          addDetail(detailList, '所在地', school.address);
+          addDetail(detailList, '特徴', school.notes);
+          addDetail(detailList, '取り組み', school.programs);
+
+          const tagContainer = document.createElement('ul');
+          tagContainer.className = 'school-tags';
+          school.tags.forEach((tag) => {
+            const li = document.createElement('li');
+            li.textContent = tag;
+            tagContainer.appendChild(li);
+          });
+
+          article.append(header, areaEl, detailList, tagContainer);
+
+          const nearbyData = NEARBY_PROGRAMS[school.area];
+          if (nearbyData) {
+            const nearbySection = document.createElement('div');
+            nearbySection.className = 'nearby-section';
+
+            const nearbyHeading = document.createElement('h4');
+            nearbyHeading.textContent = '周辺スクール情報';
+            nearbySection.appendChild(nearbyHeading);
+
+            const nearbyGroups = document.createElement('div');
+            nearbyGroups.className = 'nearby-groups';
+            nearbyGroups.append(
+              createProgramList('子ども向けスクール', nearbyData.kids, 'kids'),
+              createProgramList('大人向けスクール', nearbyData.adults, 'adults')
+            );
+
+            nearbySection.appendChild(nearbyGroups);
+            article.appendChild(nearbySection);
+          }
+
+          schoolList.appendChild(article);
+        });
+      }
+
+      const total = SCHOOLS.length;
+      const counts = Object.fromEntries(
+        Object.keys(typeLabels).map((type) => [type, results.filter((school) => school.type === type).length])
+      );
+      const summaryParts = Object.keys(typeLabels)
+        .map((type) => `${typeLabels[type]} ${counts[type]}校`)
+        .join(' / ');
+      resultSummary.innerHTML = `<strong>${results.length}校</strong> ヒット / 登録 ${total}校<br><span class="result-breakdown">${summaryParts}</span>`;
+      resultsRegion.setAttribute('aria-busy', 'false');
+    }
+
+    render();
   </script>
 </body>
 </html>

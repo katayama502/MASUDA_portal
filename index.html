@@ -197,7 +197,7 @@
     </div>
     <p class="copyright">&copy; 2024 MASUDA Learning Hub</p>
   </footer>
-    <script>
+  <script>
     const TYPE_LABELS = {
       elementary: '小学生向け',
       middle: '中学生向け',
@@ -212,222 +212,326 @@
 
     const SCHOOLS = [
       {
-        name: '益田キッズサッカーアカデミー',
-        type: 'elementary',
-        district: '益田市立益田小学校エリア',
-        address: '益田市元町 運動公園多目的グラウンド（益田小学校から徒歩5分）',
-        managingBody: '益田キッズスポーツクラブ',
-        notes: 'ドリブルとチーム連携を基礎から学べる小学生向けサッカークラブ。週2回のナイター練習あり。',
-        tags: ['益田市立益田小学校']
+        name: '明光義塾 益田駅前教室',
+        types: ['elementary', 'middle', 'high'],
+        district: '駅前町（益田駅前ビル内）',
+        address: '益田市駅前町 17-1 益田駅前ビル2F',
+        managingBody: '明光義塾',
+        notes: '個別指導専門の学習塾。学校別カリキュラムと定期テスト・受験対策に対応。',
+        category: '学習塾・予備校',
+        tags: ['駅前町', '益田駅', '個別指導']
       },
       {
-        name: '吉田ものづくりラボ',
-        type: 'elementary',
-        district: '益田市立吉田小学校周辺',
-        address: '益田市乙吉町 吉田地域交流センター',
-        managingBody: '吉田地区まちづくり協議会',
-        notes: 'プログラミングと木工を組み合わせたSTEAM講座。作品展示会を年2回開催。',
-        tags: ['益田市立吉田小学校']
+        name: '渡辺塾',
+        types: ['elementary', 'middle', 'high'],
+        district: '益田市中心部',
+        address: '益田市昭和町 本部教室ほか',
+        managingBody: '渡辺塾',
+        notes: '全教科対応の通い放題プランで自分のペースに合わせて学べる地域密着塾。',
+        category: '学習塾・予備校',
+        tags: ['昭和町', '通い放題', '全教科']
       },
       {
-        name: '中西ロボットクラブ',
-        type: 'elementary',
-        district: '益田市立中西小学校周辺',
-        address: '益田市中吉田町 農村環境改善センター',
-        managingBody: '中西学区子ども育成会',
-        notes: 'レゴロボットでセンサー制御を学ぶ少人数制クラブ。大会出場もサポート。',
-        tags: ['益田市立中西小学校']
+        name: '塾ナビ（益田市高校生向け塾一覧）',
+        types: ['high'],
+        district: 'オンライン特集',
+        address: 'Web特集ページ',
+        managingBody: '塾ナビ',
+        notes: '益田市で高校生が通える学習塾・予備校を比較できるポータルサイト。',
+        category: '学習塾・予備校',
+        tags: ['高校生', '比較サイト']
       },
       {
-        name: '高津イングリッシュクラブ',
-        type: 'elementary',
-        district: '益田市立高津小学校周辺',
-        address: '益田市高津町 高津町公民館',
-        managingBody: 'イングリッシュパートナーズ益田',
-        notes: 'ネイティブ講師とゲーム形式で英語に親しむ放課後教室。フォニックス指導付き。',
-        tags: ['益田市立高津小学校']
+        name: 'Puffin English School',
+        types: ['elementary', 'middle', 'high'],
+        district: '乙吉町',
+        address: '益田市乙吉町 専用スタジオ',
+        managingBody: 'Puffin English School',
+        notes: '2才から大人まで対応する会話重視の少人数制英会話教室。',
+        category: '英語・英会話',
+        tags: ['乙吉町', '英会話', '少人数']
       },
       {
-        name: '飯田クリエイティブラボ',
-        type: 'elementary',
-        district: '益田市立飯田小学校エリア',
-        address: '益田市飯田町 南部生涯学習センター',
-        managingBody: '飯田地区子ども会連合',
-        notes: 'デザイン思考を活かした工作・動画制作を行うワークショップ型教室。',
-        tags: ['益田市立飯田小学校']
+        name: 'ペッピーキッズクラブ 益田教室',
+        types: ['elementary', 'middle'],
+        district: '乙吉町',
+        address: '益田市乙吉町 子ども英会話スタジオ',
+        managingBody: 'イッティージャパン株式会社',
+        notes: 'リズムとフォニックスを取り入れたこども英会話。幼児から中学生まで対応。',
+        category: '英語・英会話',
+        tags: ['乙吉町', 'こども英会話']
       },
       {
-        name: '西益田ミニバススクール',
-        type: 'elementary',
-        district: '益田市立西益田小学校周辺',
-        address: '益田市乙吉町 西益田体育館',
-        managingBody: '益田市ミニバスケットボール協会',
-        notes: '運動が苦手な子も歓迎の基礎練習クラス。週末は市内大会へ参加。',
-        tags: ['益田市立西益田小学校']
+        name: 'ECCジュニア 久城教室',
+        types: ['elementary', 'middle', 'high'],
+        district: '久城町',
+        address: '益田市久城町 個人宅教室',
+        managingBody: 'ECCジュニア',
+        notes: '英検・漢検対策コースもある地域密着型の英語教室。',
+        category: '英語・英会話',
+        tags: ['久城町', 'ECCジュニア', '検定対応']
       },
       {
-        name: '東仙道リズムダンス教室',
-        type: 'elementary',
-        district: '益田市立東仙道小学校周辺',
-        address: '益田市東町 コミュニティスタジオ東仙道',
-        managingBody: '東仙道ダンスプロジェクト',
-        notes: 'ヒップホップやK-POPダンスを基礎から学べる初心者向けクラス。',
-        tags: ['益田市立東仙道小学校']
+        name: 'ECCジュニア（益田市内教室一覧）',
+        types: ['elementary', 'middle', 'high'],
+        district: 'オンライン特集',
+        address: '公式サイト 教室検索',
+        managingBody: 'ECCジュニア',
+        notes: '益田市内のECCジュニア各教室をまとめて検索できる公式ページ。',
+        category: '英語・英会話',
+        tags: ['ECCジュニア', '比較サイト']
       },
       {
-        name: '横田サイクリングアカデミー',
-        type: 'elementary',
-        district: '益田市立横田小学校エリア',
-        address: '益田市高津町横田 サイクルパーク',
-        managingBody: '横田アクティブラーニング協議会',
-        notes: '安全な乗り方とメンテナンスを学ぶ自転車教室。親子参加コースあり。',
-        tags: ['益田市立横田小学校']
+        name: 'こどもプログラミング教室 クリエット',
+        types: ['elementary', 'middle'],
+        district: '益田市内',
+        address: '益田市内 会場は申込時に案内',
+        managingBody: 'クリエット',
+        notes: 'Scratchや電子工作で創造力を育む小中学生向けプログラミング教室。',
+        category: 'プログラミング／ロボット',
+        tags: ['プログラミング', 'Scratch']
       },
       {
-        name: '二条ネイチャー探検隊',
-        type: 'elementary',
-        district: '益田市立二条小学校周辺',
-        address: '益田市二条町 里山フィールドステーション',
-        managingBody: '石見自然体験ネットワーク',
-        notes: '季節の自然観察とアウトドア体験で環境学習を行う週末クラブ。',
-        tags: ['益田市立二条小学校']
+        name: 'ヒューマンアカデミー こどもプログラミング 益田駅前教室',
+        types: ['elementary', 'middle'],
+        district: '駅前町（Eagaビル2F）',
+        address: '益田市駅前町 35-2 Eagaビル2F',
+        managingBody: 'ヒューマンアカデミー',
+        notes: 'Scratch・マインクラフト・Pythonなど段階的に学べるカリキュラム。',
+        category: 'プログラミング／ロボット',
+        tags: ['駅前町', 'プログラミング', 'マイクラ']
       },
       {
-        name: '七尾ビーチアートクラブ',
-        type: 'elementary',
-        district: '益田市立七尾小学校沿岸エリア',
-        address: '益田市七尾町 七尾海岸アートベース',
-        managingBody: '七尾まちづくり協議会',
-        notes: '貝殻や流木を使ったアート作品づくりと海辺の環境学習を組み合わせた教室。',
-        tags: ['益田市立七尾小学校']
+        name: 'タミヤロボットスクール ツクロ益田教室',
+        types: ['elementary', 'middle'],
+        district: '常盤町',
+        address: '益田市常盤町 体験スペース',
+        managingBody: 'ツクロ益田',
+        notes: 'タミヤのロボット教材で組み立てとプログラミングを学ぶ少人数クラス。',
+        category: 'プログラミング／ロボット',
+        tags: ['常盤町', 'ロボット', 'タミヤ']
       },
       {
-        name: '鎌手マリンスポーツクラブ',
-        type: 'elementary',
-        district: '益田市立鎌手小学校沿岸エリア',
-        address: '益田市鎌手町 ビーチハウスかまて',
-        managingBody: '鎌手マリンアクティビティ協会',
-        notes: 'シーカヤックとビーチクリーンを組み合わせた体験型の海洋プログラム。',
-        tags: ['益田市立鎌手小学校']
+        name: 'コエテコ（益田市プログラミング教室一覧）',
+        types: ['elementary', 'middle'],
+        district: 'オンライン特集',
+        address: 'Web特集ページ',
+        managingBody: 'コエテコ by GMO',
+        notes: '益田市の子ども向けプログラミング・ロボット教室を比較できる情報サイト。',
+        category: 'プログラミング／ロボット',
+        tags: ['比較サイト', 'プログラミング']
       },
       {
-        name: '匹見川フィッシングスクール',
-        type: 'elementary',
-        district: '益田市立匹見小学校エリア',
-        address: '益田市匹見町匹見イ 匹見川河川敷',
-        managingBody: '匹見アウトドア協議会',
-        notes: '渓流釣りのマナーと安全知識を学びながら自然とふれ合う週末講座。',
-        tags: ['益田市立匹見小学校']
+        name: 'Enjoy Music Association',
+        types: ['elementary', 'middle', 'high'],
+        district: '市内複数拠点',
+        address: '益田市内 各スタジオ（申込時案内）',
+        managingBody: 'Enjoy Music Association',
+        notes: 'ヤマハ有資格講師が在籍。ボーカル・ピアノなど幅広いコースを用意。',
+        category: '音楽',
+        tags: ['音楽', 'ボーカル', 'ピアノ']
       },
       {
-        name: '美都グリーンアート教室',
-        type: 'elementary',
-        district: '益田市立美都小学校周辺',
-        address: '益田市美都町 ふれあいホールみと',
-        managingBody: '美都アートプロジェクト',
-        notes: '植物を題材にした絵画やクラフトを楽しむアートレッスン。地域の花祭りに出展。',
-        tags: ['益田市立美都小学校']
+        name: 'オリエント音楽教室センター 常盤教室',
+        types: ['elementary', 'middle', 'high'],
+        district: '常盤町',
+        address: '益田市常盤町 ピアノ教室',
+        managingBody: 'オリエント音楽教室センター',
+        notes: '個別レッスンで基礎からコンクール対策まで対応するピアノ専門教室。',
+        category: '音楽',
+        tags: ['常盤町', 'ピアノ', '個別レッスン']
       },
       {
-        name: '都茂ファームスクール',
-        type: 'elementary',
-        district: '益田市立都茂小学校エリア',
-        address: '益田市美都町都茂 体験農園つも',
-        managingBody: '都茂グリーンツーリズム協議会',
-        notes: '野菜づくりと料理を通じて食育を学ぶ体験型スクール。',
-        tags: ['益田市立都茂小学校']
+        name: 'ヤマハ音楽教室（益田・島根県内一覧）',
+        types: ['elementary', 'middle', 'high'],
+        district: 'オンライン特集',
+        address: '公式サイト 教室検索',
+        managingBody: 'ヤマハ音楽教室',
+        notes: '益田市や島根県内のヤマハ音楽教室を横断的に調べられる公式ページ。',
+        category: '音楽',
+        tags: ['ヤマハ', '比較サイト']
       },
       {
-        name: '益田サイエンスラボ',
-        type: 'middle',
-        district: '益田市立益田中学校エリア',
-        address: '益田市染羽町 理科教育センター',
-        managingBody: '益田市科学教育研究会',
-        notes: 'ロボット制作や化学実験を行う探究型の放課後ラボ。研究発表会を開催。',
-        tags: ['益田市立益田中学校']
+        name: '太陽フィットネスクラブ 石見店 スイミングスクール',
+        types: ['elementary', 'middle', 'high'],
+        district: '駅前町',
+        address: '益田市駅前町 25m×6コースの屋内プール',
+        managingBody: '太陽フィットネスクラブ',
+        notes: 'ベビーから選手育成まで対応。駅前で通いやすいスイミングスクール。',
+        category: 'スポーツ / スイミング',
+        tags: ['駅前町', 'スイミング']
       },
       {
-        name: '高津バスケットボールクラブ',
-        type: 'middle',
-        district: '益田市立高津中学校周辺',
-        address: '益田市高津町 高津体育館',
-        managingBody: '益田市バスケットボール協会',
-        notes: '基礎トレーニングから大会出場までサポートする部活動連携クラブ。',
-        tags: ['益田市立高津中学校']
+        name: '益田スイミングクラブ',
+        types: ['elementary', 'middle', 'high'],
+        district: '益田市内',
+        address: '益田市内 専用プール',
+        managingBody: '益田スイミングクラブ',
+        notes: '地域密着で技術と体力を育むスイミングクラブ。体験参加も受付。',
+        category: 'スポーツ / スイミング',
+        tags: ['スイミング', '市内クラブ']
       },
       {
-        name: '横田アドベンチャーラン',
-        type: 'middle',
-        district: '益田市立横田中学校エリア',
-        address: '益田市高津町横田 里山トレイルコース',
-        managingBody: '横田まちづくり実行委員会',
-        notes: 'トレイルランと体幹トレーニングで体力づくりを行うアウトドアクラブ。',
-        tags: ['益田市立横田中学校']
+        name: 'PSV益田',
+        types: ['elementary', 'middle'],
+        district: '益田市内各会場',
+        address: '益田市内 グラウンド（U-8〜U-15対象）',
+        managingBody: 'PSV益田サッカークラブ',
+        notes: '育成課が学年別クラスを開講。月謝やスケジュールを公式サイトで公開。',
+        category: 'スポーツ / サッカー',
+        tags: ['サッカー', 'U-15', '育成']
       },
       {
-        name: '匹見和太鼓ワークショップ',
-        type: 'middle',
-        district: '益田市立匹見中学校周辺',
-        address: '益田市匹見町 匹見文化センター',
-        managingBody: '匹見和太鼓保存会',
-        notes: '伝統のリズムと演舞を学ぶ太鼓教室。地域祭りでのステージ出演あり。',
-        tags: ['益田市立匹見中学校']
+        name: '島根県立サッカー場 サッカー教室',
+        types: ['elementary', 'middle'],
+        district: '乙吉町',
+        address: '益田市乙吉町 島根県立サッカー場',
+        managingBody: '島根県スポーツ振興財団',
+        notes: '小・中学生対象の期別教室。プロコーチが基礎技術を指導。',
+        category: 'スポーツ / サッカー',
+        tags: ['乙吉町', 'サッカー教室']
       },
       {
-        name: '美都ICTキャンプ',
-        type: 'middle',
-        district: '益田市立美都中学校エリア',
-        address: '益田市美都町 都茂ICTラボ',
-        managingBody: '美都まちづくりセンター',
-        notes: 'プログラミングと動画制作を学ぶ短期集中講座。地域プロモーション動画を制作。',
-        tags: ['益田市立美都中学校']
+        name: 'p-ground（益田市サッカーチーム検索）',
+        types: ['elementary', 'middle', 'high'],
+        district: 'オンライン特集',
+        address: 'Web検索サービス',
+        managingBody: 'p-ground',
+        notes: '益田市のサッカーチームやスクールを検索できる情報データベース。',
+        category: 'スポーツ / サッカー',
+        tags: ['比較サイト', 'サッカー']
       },
       {
-        name: '益田東STEAMゼミ',
-        type: 'middle',
-        district: '益田東中学校エリア',
-        address: '益田市久城町 益田東学園STEAMルーム',
-        managingBody: '学校法人益田永島学園',
-        notes: '3Dプリントとプレゼンテーションに取り組む中高一貫の少人数ゼミ。',
-        tags: ['益田東中学校']
+        name: '日本空手道糸洲会 拳志舘益田支部',
+        types: ['elementary', 'middle'],
+        district: '昭和町（市民体育館）',
+        address: '益田市昭和町 市民体育館 剣道場',
+        managingBody: '日本空手道糸洲会 拳志舘益田支部',
+        notes: '小6〜中3を中心に指導。月謝無料で実費のみの空手教室。',
+        category: 'スポーツ / 武道',
+        tags: ['空手', '昭和町', '武道']
       },
       {
-        name: '益田リサーチラボ',
-        type: 'high',
-        district: '島根県立益田高等学校周辺',
-        address: '益田市東町 地域共創ラボ',
-        managingBody: '益田高校OB研究会',
-        notes: '地域課題をテーマにしたリサーチとデータ分析を学ぶ探究講座。',
-        tags: ['島根県立益田高等学校']
+        name: '高津武道館',
+        types: ['elementary', 'middle', 'high'],
+        district: '高津町',
+        address: '益田市高津町 高津武道館',
+        managingBody: '高津武道館',
+        notes: '剣道を中心に地域の武道活動を紹介。稽古情報を随時発信。',
+        category: 'スポーツ / 武道',
+        tags: ['高津町', '剣道', '武道']
       },
       {
-        name: '翔陽ホスピタリティ講座',
-        type: 'high',
-        district: '島根県立益田翔陽高等学校エリア',
-        address: '益田市昭和町 コミュニティカレッジ',
-        managingBody: '益田翔陽ホスピタリティ研究会',
-        notes: '観光案内や接遇スキルを実地で学ぶフィールドワーク型講座。',
-        tags: ['島根県立益田翔陽高等学校']
+        name: 'Sunbeams キッズダンスチーム',
+        types: ['elementary', 'middle'],
+        district: '益田市内',
+        address: '益田市内 練習スタジオ',
+        managingBody: 'Sunbeams',
+        notes: '幼児から参加できるキッズダンスチーム。地域イベントへの出演も多数。',
+        category: 'ダンス',
+        tags: ['ダンス', 'キッズ', 'イベント出演']
       },
       {
-        name: '益田東グローバルディベート',
-        type: 'high',
-        district: '益田東高等学校エリア',
-        address: '益田市久城町 イングリッシュホール',
-        managingBody: '益田東グローバル教育センター',
-        notes: '英語ディベートと国際課題研究に取り組む放課後プログラム。海外校とのオンライン交流あり。',
-        tags: ['益田東高等学校']
+        name: 'MYSブライトネス ダンススタジオ',
+        types: ['elementary', 'middle', 'high'],
+        district: '益田・浜田エリア',
+        address: '益田市内 提携スタジオ（詳細は公式SNS）',
+        managingBody: 'MYSブライトネス',
+        notes: 'ジャズ・K-POPなど多彩なジャンルを学べるダンススタジオ。',
+        category: 'ダンス',
+        tags: ['ダンス', 'K-POP', '浜田エリア']
       },
       {
-        name: '明誠起業チャレンジ',
-        type: 'high',
-        district: '明誠高等学校エリア',
-        address: '益田市三宅町 スタートアップガレージ',
-        managingBody: '明誠高校キャリアデザイン室',
-        notes: '地域ビジネスを題材にしたアイデアソンとビジネスプランづくりを支援する講座。',
-        tags: ['明誠高等学校']
+        name: '習研 岡野書道教室',
+        types: ['elementary', 'middle', 'high'],
+        district: '駅前町',
+        address: '益田市駅前町 書道教室',
+        managingBody: '習研 岡野書道教室',
+        notes: '月3回開催。体験レッスンも受付する少人数制の書道教室。',
+        category: '書道・そろばん',
+        tags: ['書道', '駅前町', '少人数']
+      },
+      {
+        name: '佐々木習字教室',
+        types: ['elementary', 'middle', 'high'],
+        district: '東町',
+        address: '益田市東町 書道教室',
+        managingBody: '佐々木習字教室',
+        notes: '幼児から一般まで学べる書道教室。月謝2,500円で継続しやすい。',
+        category: '書道・そろばん',
+        tags: ['書道', '東町', '月謝2500円']
+      },
+      {
+        name: '公文式（益田市内教室）',
+        types: ['elementary', 'middle', 'high'],
+        district: '乙吉・久城・高津ほか',
+        address: '益田市内各教室（乙吉・久城・高津・本町・三宅町・横田）',
+        managingBody: '公文教育研究会',
+        notes: '算数・英語・国語の個別学習。学校帰りに通いやすい複数教室を展開。',
+        category: '書道・そろばん',
+        tags: ['公文式', '個別学習', '複数教室']
+      },
+      {
+        name: '福原そろばん教室 ほか市内そろばん教室',
+        types: ['elementary', 'middle'],
+        district: '染羽町 ほか',
+        address: '益田市染羽町（福原そろばん）ほか 増野・西本・岩本教室あり',
+        managingBody: '益田市そろばん教室ネットワーク',
+        notes: '基礎から珠算・暗算を学べるそろばん教室。市内複数拠点を掲載。',
+        category: '書道・そろばん',
+        tags: ['そろばん', '染羽町', '珠算']
+      },
+      {
+        name: '学年別おすすめ：小学生',
+        types: ['elementary'],
+        district: 'ガイド記事',
+        address: 'MASUDA Learning Hub 編集部',
+        managingBody: 'MASUDA Learning Hub',
+        notes: 'ECCジュニアやPeppy、クリエット、ヒューマンアカデミー、タミヤロボットスクール、EMA音楽、スイミング、PSV、書道、そろばん、公文などをチェック。',
+        category: '学年別ガイド',
+        tags: ['ガイド', '小学生向け']
+      },
+      {
+        name: '学年別おすすめ：中学生',
+        types: ['middle'],
+        district: 'ガイド記事',
+        address: 'MASUDA Learning Hub 編集部',
+        managingBody: 'MASUDA Learning Hub',
+        notes: '明光義塾や渡辺塾、公文、英会話継続、PSV（U-15）、スイミング、書道などを比較。',
+        category: '学年別ガイド',
+        tags: ['ガイド', '中学生向け']
+      },
+      {
+        name: '学年別おすすめ：高校生',
+        types: ['high'],
+        district: 'ガイド記事',
+        address: 'MASUDA Learning Hub 編集部',
+        managingBody: 'MASUDA Learning Hub',
+        notes: '明光義塾や渡辺塾、公文、映像授業系予備校、上級英会話、音楽専門レッスンなどを紹介。',
+        category: '学年別ガイド',
+        tags: ['ガイド', '高校生向け']
       }
     ];
+    function getSchoolTypes(school) {
+      if (Array.isArray(school.types) && school.types.length > 0) {
+        return school.types;
+      }
+      if (school.type) {
+        return [school.type];
+      }
+      return [];
+    }
+
+    function getPrimaryTypeOrder(school) {
+      const schoolTypes = getSchoolTypes(school);
+      if (schoolTypes.length === 0) return 99;
+      return Math.min(
+        ...schoolTypes.map((type) => {
+          const order = TYPE_ORDER[type];
+          return typeof order === 'number' ? order : 99;
+        })
+      );
+    }
 
     const typeKeys = Object.keys(TYPE_ORDER);
 
@@ -513,7 +617,11 @@
 
     function filterSchools() {
       const normalizedTerm = normalizeText(state.term);
-      return SCHOOLS.filter((school) => state.types.has(school.type))
+      return SCHOOLS.filter((school) => {
+        const schoolTypes = getSchoolTypes(school);
+        if (schoolTypes.length === 0) return true;
+        return schoolTypes.some((type) => state.types.has(type));
+      })
         .filter((school) => {
           if (!normalizedTerm) return true;
           const keywords = [
@@ -522,6 +630,7 @@
             school.address,
             school.managingBody,
             school.notes,
+            school.category,
             ...(school.keywords ?? []),
             ...(school.tags ?? [])
           ].join(' ');
@@ -533,7 +642,7 @@
           return Array.from(state.tags).some((tag) => tags.includes(tag));
         })
         .sort((a, b) => {
-          const typeDiff = (TYPE_ORDER[a.type] ?? 99) - (TYPE_ORDER[b.type] ?? 99);
+          const typeDiff = getPrimaryTypeOrder(a) - getPrimaryTypeOrder(b);
           if (typeDiff !== 0) return typeDiff;
           return a.name.localeCompare(b.name, 'ja');
         });
@@ -547,22 +656,38 @@
       dd.textContent = value;
       list.append(dt, dd);
     }
-
     function createSchoolCard(school) {
       const article = document.createElement('article');
       article.className = 'school-card';
       article.setAttribute('role', 'listitem');
-      article.dataset.type = school.type;
 
       const header = document.createElement('header');
-      const typeLabel = document.createElement('span');
-      typeLabel.className = 'school-type';
-      typeLabel.textContent = TYPE_LABELS[school.type] ?? '習い事';
-      header.appendChild(typeLabel);
+      const schoolTypes = getSchoolTypes(school).sort(
+        (a, b) => (TYPE_ORDER[a] ?? 99) - (TYPE_ORDER[b] ?? 99)
+      );
+
+      if (schoolTypes.length > 0) {
+        const typeGroup = document.createElement('div');
+        typeGroup.className = 'school-type-group';
+        schoolTypes.forEach((type) => {
+          const typeLabel = document.createElement('span');
+          typeLabel.className = 'school-type';
+          typeLabel.textContent = TYPE_LABELS[type] ?? '習い事';
+          typeGroup.appendChild(typeLabel);
+        });
+        header.appendChild(typeGroup);
+      }
 
       const name = document.createElement('h3');
       name.textContent = school.name;
       header.appendChild(name);
+
+      if (school.category) {
+        const category = document.createElement('p');
+        category.className = 'school-category';
+        category.textContent = school.category;
+        header.appendChild(category);
+      }
 
       if (school.district) {
         const area = document.createElement('p');
@@ -617,7 +742,10 @@
       }
 
       const typeCounts = results.reduce((acc, school) => {
-        acc[school.type] = (acc[school.type] ?? 0) + 1;
+        getSchoolTypes(school).forEach((type) => {
+          if (!state.types.has(type)) return;
+          acc[type] = (acc[type] ?? 0) + 1;
+        });
         return acc;
       }, {});
 

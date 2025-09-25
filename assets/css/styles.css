@@ -408,9 +408,17 @@ img {
   display: grid;
   place-items: center;
   box-shadow: 0 18px 36px rgba(47, 77, 228, 0.16);
+  position: relative;
+  overflow: hidden;
 }
+
 .school-logo span {
   transform: translateY(1px);
+}
+
+.school-logo svg {
+  width: 44px;
+  height: 44px;
 }
 
 .school-card h3 {
@@ -858,7 +866,12 @@ img {
   }
 
   .school-card {
-    padding: 20px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .school-card h3 {
+    font-size: 1.05rem;
   }
 
   .school-card header {
@@ -882,15 +895,30 @@ img {
   }
 
   .school-detail dd {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
   }
 
   .school-tags {
     gap: 6px;
   }
 
+  .school-category,
+  .school-area {
+    font-size: 0.8rem;
+  }
+
+  .school-notes {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .school-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 12px;
   }
 }

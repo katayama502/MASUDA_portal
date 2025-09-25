@@ -581,6 +581,39 @@
         tags: ['島根県立益田高等学校', '島根県立益田翔陽高等学校', '益田東高等学校']
       }
     ];
+    const CITY_SCHOOL_TAGS = [
+      // 小学校
+      '益田市立益田小学校',
+      '益田市立吉田小学校',
+      '益田市立高津小学校',
+      '益田市立久城小学校',
+      '益田市立横田小学校',
+      '益田市立戸田小学校',
+      '益田市立鎌手小学校',
+      '益田市立東仙道小学校',
+      '益田市立種小学校',
+      '益田市立飯田小学校',
+      '益田市立雪舟小学校',
+      '益田市立匹見小学校',
+      '益田市立美都小学校',
+      '益田市立二条小学校',
+      '益田市立都茂小学校',
+      // 中学校
+      '益田市立益田中学校',
+      '益田市立高津中学校',
+      '益田市立東陽中学校',
+      '益田市立鎌手中学校',
+      '益田市立匹見中学校',
+      '益田市立美都中学校',
+      '益田市立二条中学校',
+      '益田市立横田中学校',
+      '益田市立都茂中学校',
+      '益田市立雪舟中学校',
+      // 高等学校
+      '島根県立益田高等学校',
+      '島根県立益田翔陽高等学校',
+      '益田東高等学校'
+    ];
     function getSchoolTypes(school) {
       if (Array.isArray(school.types) && school.types.length > 0) {
         return school.types;
@@ -602,6 +635,58 @@
       );
     }
 
+    function deriveLogoToken(name) {
+      if (!name) return '習';
+      const trimmed = name.replace(/[（(].*?[)）]/g, '').trim();
+      if (!trimmed) return '習';
+      const asciiParts = trimmed.match(/[A-Za-z0-9]+/g);
+      if (asciiParts && asciiParts.length > 0) {
+        const first = asciiParts[0]?.[0] ?? '';
+        const second = asciiParts.length > 1 ? asciiParts[1]?.[0] ?? '' : asciiParts[0]?.[1] ?? '';
+        const token = `${first}${second}`.toUpperCase();
+        if (token.trim()) {
+          return token;
+        }
+      }
+      const joined = trimmed.replace(/[\s・／/]/g, '');
+      return joined.slice(0, 2) || trimmed[0];
+    }
+
+    function getLogoColors(seed) {
+      const source = seed || 'masuda';
+      let hash = 0;
+      for (const char of source) {
+        hash = (hash << 5) - hash + char.codePointAt(0);
+        hash |= 0;
+      }
+      const hue = Math.abs(hash) % 360;
+      return {
+        bg: `hsl(${hue}, 82%, 92%)`,
+        fg: `hsl(${hue}, 65%, 30%)`
+      };
+    }
+
+    function createSchoolLogo(school) {
+      const logo = document.createElement('div');
+      logo.className = 'school-logo';
+      const token = school.logoText ?? deriveLogoToken(school.name ?? '');
+      const colors = getLogoColors(school.logoSeed ?? `${school.name ?? ''}${school.category ?? ''}`);
+      const background = school.logoColor ?? colors.bg;
+      const foreground = school.logoTextColor ?? colors.fg;
+      logo.style.setProperty('--logo-bg', background);
+      logo.style.setProperty('--logo-fg', foreground);
+
+      const label = document.createElement('span');
+      label.textContent = token;
+      label.setAttribute('aria-hidden', 'true');
+      logo.appendChild(label);
+
+      logo.setAttribute('role', 'img');
+      logo.setAttribute('aria-label', `${school.name}のロゴ`);
+
+      return logo;
+    }
+
     const typeKeys = Object.keys(TYPE_ORDER);
 
     const state = {
@@ -618,7 +703,8 @@
     const clearTagsButton = document.getElementById('clear-tag-filter');
     const resultsRegion = document.querySelector('.results');
 
-    const allTags = Array.from(new Set(SCHOOLS.flatMap((school) => school.tags ?? []))).sort((a, b) =>
+    const derivedTags = SCHOOLS.flatMap((school) => school.tags ?? []);
+    const allTags = Array.from(new Set([...CITY_SCHOOL_TAGS, ...derivedTags])).sort((a, b) =>
       a.localeCompare(b, 'ja')
     );
 
@@ -731,6 +817,11 @@
       article.setAttribute('role', 'listitem');
 
       const header = document.createElement('header');
+      const logo = createSchoolLogo(school);
+      header.appendChild(logo);
+
+      const heading = document.createElement('div');
+      heading.className = 'school-card-heading';
       const schoolTypes = getSchoolTypes(school).sort(
         (a, b) => (TYPE_ORDER[a] ?? 99) - (TYPE_ORDER[b] ?? 99)
       );
@@ -744,27 +835,28 @@
           typeLabel.textContent = TYPE_LABELS[type] ?? '習い事';
           typeGroup.appendChild(typeLabel);
         });
-        header.appendChild(typeGroup);
+        heading.appendChild(typeGroup);
       }
 
       const name = document.createElement('h3');
       name.textContent = school.name;
-      header.appendChild(name);
+      heading.appendChild(name);
 
       if (school.category) {
         const category = document.createElement('p');
         category.className = 'school-category';
         category.textContent = school.category;
-        header.appendChild(category);
+        heading.appendChild(category);
       }
 
       if (school.district) {
         const area = document.createElement('p');
         area.className = 'school-area';
         area.textContent = school.district;
-        header.appendChild(area);
+        heading.appendChild(area);
       }
 
+      header.appendChild(heading);
       article.appendChild(header);
 
       const detail = document.createElement('dl');

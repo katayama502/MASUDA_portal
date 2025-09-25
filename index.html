@@ -1044,6 +1044,11 @@
       article.className = 'school-card';
       article.setAttribute('role', 'listitem');
 
+      const normalizedTags = Array.isArray(school.tags)
+        ? school.tags.filter((tag) => typeof tag === 'string' && tag.trim())
+        : [];
+      article.dataset.tags = JSON.stringify(normalizedTags);
+
       const header = document.createElement('header');
       const logo = createSchoolLogo(school);
       header.appendChild(logo);
@@ -1100,10 +1105,10 @@
         article.appendChild(notes);
       }
 
-      if (school.tags && school.tags.length > 0) {
+      if (normalizedTags.length > 0) {
         const tags = document.createElement('ul');
         tags.className = 'school-tags';
-        school.tags.forEach((tag) => {
+        normalizedTags.forEach((tag) => {
           const item = document.createElement('li');
           item.textContent = tag;
           tags.appendChild(item);
@@ -1117,6 +1122,10 @@
     function render() {
       resultsRegion.setAttribute('aria-busy', 'true');
       const results = filterSchools();
+      const activeTags = Array.from(state.tags);
+      const serializedTags = JSON.stringify(activeTags);
+      schoolList.dataset.activeTags = serializedTags;
+      resultsRegion.dataset.activeTags = serializedTags;
       schoolList.replaceChildren();
 
       if (results.length === 0) {

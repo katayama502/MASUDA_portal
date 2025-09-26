@@ -581,6 +581,39 @@
         tags: ['島根県立益田高等学校', '島根県立益田翔陽高等学校', '益田東高等学校']
       }
     ];
+    const CITY_SCHOOL_TAGS = [
+      // 小学校
+      '益田市立益田小学校',
+      '益田市立吉田小学校',
+      '益田市立高津小学校',
+      '益田市立久城小学校',
+      '益田市立横田小学校',
+      '益田市立戸田小学校',
+      '益田市立鎌手小学校',
+      '益田市立東仙道小学校',
+      '益田市立種小学校',
+      '益田市立飯田小学校',
+      '益田市立雪舟小学校',
+      '益田市立匹見小学校',
+      '益田市立美都小学校',
+      '益田市立二条小学校',
+      '益田市立都茂小学校',
+      // 中学校
+      '益田市立益田中学校',
+      '益田市立高津中学校',
+      '益田市立東陽中学校',
+      '益田市立鎌手中学校',
+      '益田市立匹見中学校',
+      '益田市立美都中学校',
+      '益田市立二条中学校',
+      '益田市立横田中学校',
+      '益田市立都茂中学校',
+      '益田市立雪舟中学校',
+      // 高等学校
+      '島根県立益田高等学校',
+      '島根県立益田翔陽高等学校',
+      '益田東高等学校'
+    ];
     function getSchoolTypes(school) {
       if (Array.isArray(school.types) && school.types.length > 0) {
         return school.types;
@@ -602,6 +635,286 @@
       );
     }
 
+    function deriveLogoToken(name) {
+      if (!name) return '習';
+      const trimmed = name.replace(/[（(].*?[)）]/g, '').trim();
+      if (!trimmed) return '習';
+      const asciiParts = trimmed.match(/[A-Za-z0-9]+/g);
+      if (asciiParts && asciiParts.length > 0) {
+        const first = asciiParts[0]?.[0] ?? '';
+        const second = asciiParts.length > 1 ? asciiParts[1]?.[0] ?? '' : asciiParts[0]?.[1] ?? '';
+        const token = `${first}${second}`.toUpperCase();
+        if (token.trim()) {
+          return token;
+        }
+      }
+      const joined = trimmed.replace(/[\s・／/]/g, '');
+      return joined.slice(0, 2) || trimmed[0];
+    }
+
+    function getLogoColors(seed) {
+      const source = seed || 'masuda';
+      let hash = 0;
+      for (const char of source) {
+        hash = (hash << 5) - hash + char.codePointAt(0);
+        hash |= 0;
+      }
+      const hue = Math.abs(hash) % 360;
+      return {
+        bg: `hsl(${hue}, 82%, 92%)`,
+        fg: `hsl(${hue}, 65%, 30%)`
+      };
+    }
+
+    function createBookIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <rect x="10" y="14" width="18" height="36" rx="4" fill="${colors.accent}" opacity="0.35"></rect>
+          <rect x="36" y="14" width="18" height="36" rx="4" fill="${colors.accent}" opacity="0.55"></rect>
+          <path d="M28 18h8" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round"></path>
+          <path d="M28 26h8" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.8"></path>
+          <path d="M28 34h8" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.65"></path>
+          <path d="M20 14v34m24-34v34" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round"></path>
+        </svg>
+      `;
+    }
+
+    function createEnglishIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <path d="M14 22a8 8 0 0 1 8-8h20a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H30l-10 8v-8h-2a8 8 0 0 1-8-8Z" fill="${colors.accent}" opacity="0.45"></path>
+          <path d="M24 26h16" stroke="${colors.primary}" stroke-width="3.2" stroke-linecap="round"></path>
+          <path d="M24 32h10" stroke="${colors.primary}" stroke-width="3.2" stroke-linecap="round" opacity="0.8"></path>
+          <circle cx="44" cy="30" r="3.5" fill="${colors.primary}"></circle>
+        </svg>
+      `;
+    }
+
+    function createCodingIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <rect x="10" y="16" width="44" height="32" rx="6" fill="${colors.accent}" opacity="0.35"></rect>
+          <rect x="14" y="20" width="36" height="24" rx="4" fill="${colors.contrast}" opacity="0.65"></rect>
+          <path d="M22 32 18 28m4 4-4 4" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M34 24h10" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.85"></path>
+          <path d="M34 30h8" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.7"></path>
+          <path d="M34 36h6" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.6"></path>
+        </svg>
+      `;
+    }
+
+    function createMusicIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <path d="M40 16v24a8 8 0 1 1-5-7.53V20l-14 4v18a8 8 0 1 1-5-7.53V22.3a4 4 0 0 1 2.92-3.85l20.16-5.24A3 3 0 0 1 42 16Z" fill="${colors.primary}" opacity="0.75"></path>
+          <circle cx="22" cy="44" r="6" fill="${colors.accent}" opacity="0.85"></circle>
+          <circle cx="38" cy="40" r="6" fill="${colors.accent}" opacity="0.6"></circle>
+        </svg>
+      `;
+    }
+
+    function createSwimmingIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <path d="M20 26c2.4-4.2 8-6.5 12.4-3.8l6.4 3.8c4.8 2.8 11.2 0.6 13.6-4.5" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          <path d="M18 36c2.5 0 4.2-1.3 6.3-2.4s4.7-1.9 7.7-0.5 4.6 4.1 8 4.1 5.8-1.9 8.5-3.4" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"></path>
+          <path d="M14 44c2.7 0 4.6-1.3 7-2.5s5.3-2.4 8.6-1 5 3.8 8.4 3.8 6.2-2 9.4-3.5" stroke="${colors.accent}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.9"></path>
+          <circle cx="40" cy="20" r="5" fill="${colors.accent}" opacity="0.6"></circle>
+        </svg>
+      `;
+    }
+
+    function createSoccerIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <circle cx="32" cy="32" r="18" fill="${colors.accent}" opacity="0.4"></circle>
+          <polygon points="32 20 25 24 27 32 32 35 37 32 39 24" fill="${colors.contrast}" opacity="0.9"></polygon>
+          <path d="M32 20 25 24l2 8 5 3 5-3 2-8-7-4Z" stroke="${colors.primary}" stroke-width="2.5" stroke-linejoin="round" fill="none"></path>
+          <path d="m25 24-6 5 4 7 6-4" stroke="${colors.primary}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          <path d="m39 24 6 5-4 7-6-4" stroke="${colors.primary}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+          <path d="m27 32-2 8 7 4 7-4-2-8" stroke="${colors.primary}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+        </svg>
+      `;
+    }
+
+    function createMartialIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <rect x="12" y="24" width="40" height="16" rx="6" fill="${colors.accent}" opacity="0.55"></rect>
+          <path d="M18 32h28" stroke="${colors.primary}" stroke-width="5" stroke-linecap="round"></path>
+          <path d="M26 32c0 6-2 12-6 14" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round"></path>
+          <path d="M38 32c0 6 2 12 6 14" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round"></path>
+          <circle cx="32" cy="32" r="6" fill="${colors.contrast}" opacity="0.85"></circle>
+        </svg>
+      `;
+    }
+
+    function createDanceIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <path d="M26 46c2.2-6.5 8.8-11 12-16s2.6-10.7-1.3-14.6" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" fill="none"></path>
+          <path d="M22 28c4.1 0 8.4 2.7 12 9 1.6 2.8 3.9 5.6 7 6.7" stroke="${colors.accent}" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85"></path>
+          <circle cx="38" cy="16" r="5" fill="${colors.primary}" opacity="0.75"></circle>
+          <circle cx="24" cy="46" r="6" fill="${colors.accent}" opacity="0.65"></circle>
+          <path d="M30 22c-4.5 2.1-7.6 6.2-8 10.5" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.7"></path>
+        </svg>
+      `;
+    }
+
+    function createCalligraphyIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <path d="M20 12c10 8 18 22 24 38" stroke="${colors.primary}" stroke-width="4" stroke-linecap="round" fill="none"></path>
+          <path d="M38 18c-2 6-6 14-12 20" stroke="${colors.primary}" stroke-width="3" stroke-linecap="round" opacity="0.6" fill="none"></path>
+          <path d="M24 48c4 0 8 2 12 4s8 2 12-2" stroke="${colors.accent}" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.85"></path>
+          <path d="M16 50c3-4 6-5 8-6" stroke="${colors.primary}" stroke-width="4" stroke-linecap="round"></path>
+        </svg>
+      `;
+    }
+
+    function createGuideIcon(colors) {
+      return `
+        <svg viewBox="0 0 64 64" role="presentation" focusable="false" aria-hidden="true">
+          <circle cx="32" cy="32" r="18" fill="${colors.accent}" opacity="0.45"></circle>
+          <polygon points="32 18 26 32 32 32 32 46 38 32 32 32" fill="${colors.contrast}" opacity="0.9"></polygon>
+          <circle cx="32" cy="32" r="6" fill="${colors.primary}" opacity="0.8"></circle>
+          <path d="M32 18v12l6-2-6-10Z" fill="${colors.primary}" opacity="0.75"></path>
+        </svg>
+      `;
+    }
+
+    const CATEGORY_ICON_DEFINITIONS = [
+      {
+        match: (category) => /学習塾|予備校/.test(category),
+        background: 'linear-gradient(140deg, #edf1ff, #dfe7ff)',
+        primary: '#2f4de4',
+        accent: '#9aaefc',
+        contrast: '#ffffff',
+        render: createBookIcon
+      },
+      {
+        match: (category) => /英語/.test(category),
+        background: 'linear-gradient(140deg, #e2f2ff, #f5fbff)',
+        primary: '#087ac4',
+        accent: '#6fd3ff',
+        contrast: '#ffffff',
+        render: createEnglishIcon
+      },
+      {
+        match: (category) => /プログラミング|ロボット/.test(category),
+        background: 'linear-gradient(140deg, #e3f9f1, #f2fffb)',
+        primary: '#00896f',
+        accent: '#6fe5b7',
+        contrast: '#103c2f',
+        render: createCodingIcon
+      },
+      {
+        match: (category) => /音楽/.test(category),
+        background: 'linear-gradient(140deg, #f6e7ff, #fef3ff)',
+        primary: '#8a3cff',
+        accent: '#caa5ff',
+        contrast: '#ffffff',
+        render: createMusicIcon
+      },
+      {
+        match: (category) => /スイミング/.test(category),
+        background: 'linear-gradient(140deg, #e1f4ff, #eafcff)',
+        primary: '#0075c9',
+        accent: '#6ec8ff',
+        contrast: '#ffffff',
+        render: createSwimmingIcon
+      },
+      {
+        match: (category) => /サッカー/.test(category),
+        background: 'linear-gradient(140deg, #f1fff2, #e7fbe9)',
+        primary: '#2f7d32',
+        accent: '#9be79e',
+        contrast: '#f5fff4',
+        render: createSoccerIcon
+      },
+      {
+        match: (category) => /武道/.test(category),
+        background: 'linear-gradient(140deg, #fff2e1, #fff8ed)',
+        primary: '#e07a12',
+        accent: '#ffbb66',
+        contrast: '#ffffff',
+        render: createMartialIcon
+      },
+      {
+        match: (category) => /ダンス/.test(category),
+        background: 'linear-gradient(140deg, #ffe5f3, #fff2f8)',
+        primary: '#ff4f8b',
+        accent: '#ff9ec1',
+        contrast: '#ffffff',
+        render: createDanceIcon
+      },
+      {
+        match: (category) => /書道|そろばん/.test(category),
+        background: 'linear-gradient(140deg, #f4f4f4, #ffffff)',
+        primary: '#343a40',
+        accent: '#9fa2a6',
+        contrast: '#ededed',
+        render: createCalligraphyIcon
+      },
+      {
+        match: (category) => /学年別/.test(category),
+        background: 'linear-gradient(140deg, #e9f5ff, #f3f9ff)',
+        primary: '#0e64b3',
+        accent: '#8cc5ff',
+        contrast: '#ffffff',
+        render: createGuideIcon
+      }
+    ];
+
+    function resolveIllustrationDesign(school) {
+      const category = school.category ?? '';
+      const definition = CATEGORY_ICON_DEFINITIONS.find((item) => item.match(category));
+      if (!definition) return null;
+      const palette = {
+        primary: definition.primary,
+        accent: definition.accent,
+        contrast: definition.contrast ?? '#ffffff'
+      };
+      return {
+        background: definition.background,
+        foreground: definition.primary,
+        svg: definition.render(palette)
+      };
+    }
+
+    function createSchoolLogo(school) {
+      const logo = document.createElement('div');
+      logo.className = 'school-logo';
+      const illustration = resolveIllustrationDesign(school);
+      const token = school.logoText ?? deriveLogoToken(school.name ?? '');
+      const colors = getLogoColors(school.logoSeed ?? `${school.name ?? ''}${school.category ?? ''}`);
+
+      if (illustration?.svg) {
+        logo.classList.add('is-illustrated');
+        logo.style.setProperty('--logo-bg', illustration.background ?? colors.bg);
+        logo.style.setProperty('--logo-fg', illustration.foreground ?? colors.fg);
+        logo.innerHTML = illustration.svg;
+      } else {
+        const background = school.logoColor ?? colors.bg;
+        const foreground = school.logoTextColor ?? colors.fg;
+        logo.style.setProperty('--logo-bg', background);
+        logo.style.setProperty('--logo-fg', foreground);
+
+        const label = document.createElement('span');
+        label.textContent = token;
+        label.setAttribute('aria-hidden', 'true');
+        logo.appendChild(label);
+      }
+
+      const ariaLabel = school.category
+        ? `${school.name}（${school.category}）のイメージイラスト`
+        : `${school.name}のイメージイラスト`;
+      logo.setAttribute('role', 'img');
+      logo.setAttribute('aria-label', ariaLabel);
+
+      return logo;
+    }
+
     const typeKeys = Object.keys(TYPE_ORDER);
 
     const state = {
@@ -618,7 +931,8 @@
     const clearTagsButton = document.getElementById('clear-tag-filter');
     const resultsRegion = document.querySelector('.results');
 
-    const allTags = Array.from(new Set(SCHOOLS.flatMap((school) => school.tags ?? []))).sort((a, b) =>
+    const derivedTags = SCHOOLS.flatMap((school) => school.tags ?? []);
+    const allTags = Array.from(new Set([...CITY_SCHOOL_TAGS, ...derivedTags])).sort((a, b) =>
       a.localeCompare(b, 'ja')
     );
 
@@ -730,7 +1044,17 @@
       article.className = 'school-card';
       article.setAttribute('role', 'listitem');
 
+      const normalizedTags = Array.isArray(school.tags)
+        ? school.tags.filter((tag) => typeof tag === 'string' && tag.trim())
+        : [];
+      article.dataset.tags = JSON.stringify(normalizedTags);
+
       const header = document.createElement('header');
+      const logo = createSchoolLogo(school);
+      header.appendChild(logo);
+
+      const heading = document.createElement('div');
+      heading.className = 'school-card-heading';
       const schoolTypes = getSchoolTypes(school).sort(
         (a, b) => (TYPE_ORDER[a] ?? 99) - (TYPE_ORDER[b] ?? 99)
       );
@@ -744,27 +1068,28 @@
           typeLabel.textContent = TYPE_LABELS[type] ?? '習い事';
           typeGroup.appendChild(typeLabel);
         });
-        header.appendChild(typeGroup);
+        heading.appendChild(typeGroup);
       }
 
       const name = document.createElement('h3');
       name.textContent = school.name;
-      header.appendChild(name);
+      heading.appendChild(name);
 
       if (school.category) {
         const category = document.createElement('p');
         category.className = 'school-category';
         category.textContent = school.category;
-        header.appendChild(category);
+        heading.appendChild(category);
       }
 
       if (school.district) {
         const area = document.createElement('p');
         area.className = 'school-area';
         area.textContent = school.district;
-        header.appendChild(area);
+        heading.appendChild(area);
       }
 
+      header.appendChild(heading);
       article.appendChild(header);
 
       const detail = document.createElement('dl');
@@ -780,10 +1105,10 @@
         article.appendChild(notes);
       }
 
-      if (school.tags && school.tags.length > 0) {
+      if (normalizedTags.length > 0) {
         const tags = document.createElement('ul');
         tags.className = 'school-tags';
-        school.tags.forEach((tag) => {
+        normalizedTags.forEach((tag) => {
           const item = document.createElement('li');
           item.textContent = tag;
           tags.appendChild(item);
@@ -797,6 +1122,10 @@
     function render() {
       resultsRegion.setAttribute('aria-busy', 'true');
       const results = filterSchools();
+      const activeTags = Array.from(state.tags);
+      const serializedTags = JSON.stringify(activeTags);
+      schoolList.dataset.activeTags = serializedTags;
+      resultsRegion.dataset.activeTags = serializedTags;
       schoolList.replaceChildren();
 
       if (results.length === 0) {

@@ -363,6 +363,7 @@ img {
 .school-list {
   display: grid;
   gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
 .school-card {
@@ -370,7 +371,8 @@ img {
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
   padding: 28px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
   border: 1px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -383,9 +385,40 @@ img {
 }
 
 .school-card header {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.school-card-heading {
+  display: grid;
   gap: 6px;
+}
+
+.school-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--logo-bg, rgba(47, 77, 228, 0.12));
+  color: var(--logo-fg, var(--primary));
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 18px 36px rgba(47, 77, 228, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.school-logo span {
+  transform: translateY(1px);
+}
+
+.school-logo svg {
+  width: 44px;
+  height: 44px;
 }
 
 .school-card h3 {
@@ -794,6 +827,10 @@ img {
   .filters {
     position: static;
   }
+
+  .school-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -829,6 +866,76 @@ img {
   }
 
   .school-card {
-    padding: 24px;
+    padding: 18px 16px;
+    gap: 10px;
+  }
+
+  .school-card h3 {
+    font-size: clamp(1rem, 2.2vw + 0.6rem, 1.18rem);
+  }
+
+  .school-card header {
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .school-logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+
+  .school-card-heading {
+    gap: 6px;
+  }
+
+  .school-detail {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .school-detail dt {
+    font-size: clamp(0.8rem, 1.4vw + 0.48rem, 0.9rem);
+  }
+
+  .school-detail dd {
+    margin-bottom: 4px;
+    font-size: clamp(0.85rem, 1.6vw + 0.5rem, 0.98rem);
+  }
+
+  .school-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 4px 0 0;
+  }
+
+  .school-tags li {
+    background: rgba(47, 77, 228, 0.08);
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+
+  .school-category,
+  .school-area {
+    font-size: clamp(0.8rem, 1.4vw + 0.48rem, 0.95rem);
+  }
+
+  .school-notes {
+    font-size: clamp(0.82rem, 1.8vw + 0.44rem, 0.98rem);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .school-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 }

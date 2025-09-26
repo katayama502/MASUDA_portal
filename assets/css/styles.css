@@ -883,11 +883,10 @@ img {
   .school-logo {
     width: 48px;
     height: 48px;
-    border-radius: 16px;
   }
 
   .school-card-heading {
-    gap: 4px;
+    gap: 6px;
   }
 
   .school-detail {

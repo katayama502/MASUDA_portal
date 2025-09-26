@@ -866,23 +866,24 @@ img {
   }
 
   .school-card {
-    padding: 16px;
-    gap: 12px;
+    padding: 16px 14px;
+    gap: 8px;
   }
 
   .school-card h3 {
-    font-size: clamp(1.1rem, 2.4vw + 0.7rem, 1.25rem);
+    font-size: clamp(0.94rem, 2vw + 0.52rem, 1.08rem);
   }
 
   .school-card header {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     gap: 12px;
+    align-items: center;
   }
 
   .school-logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
   }
 
   .school-card-heading {
@@ -891,38 +892,50 @@ img {
 
   .school-detail {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 4px;
   }
 
   .school-detail dt {
-    font-size: clamp(0.88rem, 1.6vw + 0.48rem, 0.96rem);
+    font-size: clamp(0.74rem, 1.2vw + 0.44rem, 0.86rem);
   }
 
   .school-detail dd {
-    margin-bottom: 6px;
-    font-size: clamp(0.92rem, 1.8vw + 0.5rem, 1.02rem);
+    margin-bottom: 2px;
+    font-size: clamp(0.78rem, 1.4vw + 0.46rem, 0.9rem);
   }
 
   .school-tags {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 2px 0 0;
+  }
+
+  .school-tags li {
+    background: rgba(47, 77, 228, 0.08);
+    color: var(--primary);
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.62rem;
+    line-height: 1.3;
   }
 
   .school-category,
   .school-area {
-    font-size: clamp(0.88rem, 1.6vw + 0.48rem, 0.98rem);
+    font-size: clamp(0.74rem, 1.2vw + 0.46rem, 0.9rem);
   }
 
   .school-notes {
-    font-size: clamp(0.94rem, 1.8vw + 0.55rem, 1.05rem);
-    line-height: 1.6;
+    font-size: clamp(0.76rem, 1.6vw + 0.42rem, 0.92rem);
+    line-height: 1.5;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
   .school-list {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 }

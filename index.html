@@ -1098,6 +1098,24 @@
       appendDetail(detail, '主催', school.managingBody);
       article.appendChild(detail);
 
+      if (school.address) {
+        const actions = document.createElement('div');
+        actions.className = 'school-actions';
+
+        const mapLink = document.createElement('a');
+        mapLink.className = 'map-button';
+        mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+          school.address
+        )}`;
+        mapLink.target = '_blank';
+        mapLink.rel = 'noopener';
+        mapLink.textContent = 'Googleマップで見る';
+        mapLink.setAttribute('aria-label', `${school.name}をGoogleマップで表示`);
+
+        actions.appendChild(mapLink);
+        article.appendChild(actions);
+      }
+
       if (school.notes) {
         const notes = document.createElement('p');
         notes.className = 'school-notes';

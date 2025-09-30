@@ -484,7 +484,7 @@ img {
   flex-wrap: wrap;
 }
 
-.map-button {
+.detail-button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -497,17 +497,17 @@ img {
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.map-button::before {
+.detail-button::before {
   content: '';
   display: inline-block;
   width: 18px;
   height: 18px;
-  mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/%3E%3Ccircle cx="12" cy="11" r="2"/%3E%3C/svg%3E') no-repeat center / contain;
+  mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M5 12h14"/%3E%3Cpath d="m13 6 6 6-6 6"/%3E%3C/svg%3E') no-repeat center / contain;
   background: currentColor;
 }
 
-.map-button:hover,
-.map-button:focus {
+.detail-button:hover,
+.detail-button:focus {
   background: rgba(47, 77, 228, 0.2);
   transform: translateY(-1px);
   box-shadow: 0 12px 24px rgba(47, 77, 228, 0.16);

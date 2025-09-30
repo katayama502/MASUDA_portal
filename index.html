@@ -1031,13 +1031,18 @@
         });
     }
 
-    function appendDetail(list, term, value) {
-      if (!value) return;
-      const dt = document.createElement('dt');
-      dt.textContent = term;
-      const dd = document.createElement('dd');
-      dd.textContent = value;
-      list.append(dt, dd);
+    function getSchoolHomepage(school) {
+      const explicitUrl = [school.homepage, school.website, school.url]
+        .find((value) => typeof value === 'string' && value.trim());
+      if (explicitUrl) {
+        return explicitUrl;
+      }
+
+      const fallbackKeywords = [school.name, school.district, school.category]
+        .filter((value) => typeof value === 'string' && value.trim())
+        .join(' ');
+      const query = fallbackKeywords || school.name;
+      return `https://www.google.com/search?q=${encodeURIComponent(`${query} 公式`)}&sourceid=chrome&ie=UTF-8`;
     }
     function createSchoolCard(school) {
       const article = document.createElement('article');
@@ -1075,64 +1080,23 @@
       name.textContent = school.name;
       heading.appendChild(name);
 
-      if (school.category) {
-        const category = document.createElement('p');
-        category.className = 'school-category';
-        category.textContent = school.category;
-        heading.appendChild(category);
-      }
-
-      if (school.district) {
-        const area = document.createElement('p');
-        area.className = 'school-area';
-        area.textContent = school.district;
-        heading.appendChild(area);
-      }
-
       header.appendChild(heading);
       article.appendChild(header);
 
-      const detail = document.createElement('dl');
-      detail.className = 'school-detail';
-      appendDetail(detail, '所在地', school.address);
-      appendDetail(detail, '主催', school.managingBody);
-      article.appendChild(detail);
+      const actions = document.createElement('div');
+      actions.className = 'school-actions';
 
-      if (school.address) {
-        const actions = document.createElement('div');
-        actions.className = 'school-actions';
+      const detailLink = document.createElement('a');
+      detailLink.className = 'detail-button';
+      const homepageUrl = getSchoolHomepage(school);
+      detailLink.href = homepageUrl;
+      detailLink.target = '_blank';
+      detailLink.rel = 'noopener';
+      detailLink.textContent = '詳細を見る';
+      detailLink.setAttribute('aria-label', `${school.name}の詳細ページを開く`);
 
-        const mapLink = document.createElement('a');
-        mapLink.className = 'map-button';
-        mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-          school.address
-        )}`;
-        mapLink.target = '_blank';
-        mapLink.rel = 'noopener';
-        mapLink.textContent = 'Googleマップで見る';
-        mapLink.setAttribute('aria-label', `${school.name}をGoogleマップで表示`);
-
-        actions.appendChild(mapLink);
-        article.appendChild(actions);
-      }
-
-      if (school.notes) {
-        const notes = document.createElement('p');
-        notes.className = 'school-notes';
-        notes.textContent = school.notes;
-        article.appendChild(notes);
-      }
-
-      if (normalizedTags.length > 0) {
-        const tags = document.createElement('ul');
-        tags.className = 'school-tags';
-        normalizedTags.forEach((tag) => {
-          const item = document.createElement('li');
-          item.textContent = tag;
-          tags.appendChild(item);
-        });
-        article.appendChild(tags);
-      }
+      actions.appendChild(detailLink);
+      article.appendChild(actions);
 
       return article;
     }
